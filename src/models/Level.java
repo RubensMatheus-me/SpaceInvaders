@@ -67,7 +67,7 @@ public class Level extends JPanel implements ActionListener, KeyListener {
         }
         else {
             ImageIcon gameOver = new ImageIcon("src/resources/gamerover.png");
-            graphics.drawImage(gameOver.getImage(), 0, 0, null);
+            graphics.drawImage(gameOver.getImage(), 350, 150, null);
         }
 
         g.dispose();
