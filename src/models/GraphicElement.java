@@ -83,7 +83,7 @@ public abstract class GraphicElement {
         this.width = widht;
     }
 
-    public boolean isVisible() {
+    public  boolean isVisible() {
         return isVisible;
     }
 

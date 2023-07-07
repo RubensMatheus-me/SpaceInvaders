@@ -1,29 +1,30 @@
 package models;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 public class Player extends GraphicElement {
-    private ArrayList<Bullet> bullets;
+    private ArrayList<Shoot> shoots;
+    private ArrayList<SuperShoot> superShoots;
 
     private static final int DESLOCATION = 5;
     private static final int INITIAL_DESLOCATIONX = 550;
     private static final int INITIAL_DESLOCATIONY = 550;
-    protected static int LIFE = 3;
+    protected int life = 3;
 
     public Player() {
         this.positionX = INITIAL_DESLOCATIONX;
         this.positionY = INITIAL_DESLOCATIONY;
         isVisible = true;
 
-        bullets = new ArrayList<Bullet>();
+        shoots = new ArrayList<Shoot>();
+        superShoots = new ArrayList<SuperShoot>();
     }
 
     @Override
     public void load() {
-        ImageIcon loading = new ImageIcon("src/resources/Ship3.png");
+        ImageIcon loading = new ImageIcon("src/resources/shipflyingstoped.png");
         this.image = loading.getImage();
         this.height = this.image.getHeight(null);
         this.width = this.image.getWidth(null);
@@ -35,7 +36,7 @@ public class Player extends GraphicElement {
     }
 
     public void simpleBullets() {
-        this.bullets.add(new Bullet(positionX + height, positionY + width / 2));
+        this.shoots.add(new Shoot(positionX + height, positionY + width / 2));
     }
 
     //movimentar ao apertar a tecla
@@ -43,12 +44,16 @@ public class Player extends GraphicElement {
         int code = key.getKeyCode();
         if (code == KeyEvent.VK_UP || code == KeyEvent.VK_W) {
             this.deslocationY = -DESLOCATION;
+
         } else if (code == KeyEvent.VK_DOWN || code == KeyEvent.VK_S) {
             this.deslocationY = DESLOCATION;
+
         } else if (code == KeyEvent.VK_LEFT || code == KeyEvent.VK_A) {
             this.deslocationX = -DESLOCATION;
+
         } else if (code == KeyEvent.VK_RIGHT || code == KeyEvent.VK_D) {
             this.deslocationX = DESLOCATION;
+
         }
     }
 
@@ -67,17 +72,55 @@ public class Player extends GraphicElement {
     }
 
     public void shoot() {
-        int frontShip = this.positionX + this.widthImage;
-        int middleShip = this.positionY + (this.widthImage / 2);
-        Bullet bullet = new Bullet(frontShip, middleShip);
-        this.bullets.add(bullet);
+        int frontShip = this.positionX + (this.widthImage / 2);
+        int middleShip = this.positionY + (this.heightImage / 2);
+        Shoot shoot = new Shoot(frontShip, middleShip);
+        this.shoots.add(shoot);
+    }
+    public void superShoot() {
+        int frontShip = this.positionX + (this.widthImage / 2);
+        int middleShip = this.positionY + (this.heightImage / 2);
+        SuperShoot superShoot;
+
+        // Definir a direção do tiro com base na posição do jogador
+        if (deslocationX < 0) {
+            superShoot = new SuperShoot(frontShip, middleShip, 1); // Direção: diagonal superior esquerdo
+        } else if (deslocationX > 0) {
+            superShoot = new SuperShoot(frontShip, middleShip, 2); // Direção: diagonal superior direito
+        } else if (deslocationY < 0) {
+            superShoot = new SuperShoot(frontShip, middleShip, 3); // Direção: horizontal para a esquerda
+        } else {
+            superShoot = new SuperShoot(frontShip, middleShip, 4); // Direção: horizontal para a direita
+        }
+
+        this.superShoots.add(superShoot);
     }
 
-    public ArrayList<Bullet> getBullets() {
-        return bullets;
+    public ArrayList<Shoot> getShoots() {
+        return shoots;
     }
 
-    public void setBullets(ArrayList<Bullet> bullets) {
-        this.bullets = bullets;
+    public void setBullets(ArrayList<Shoot> shoots) {
+        this.shoots = shoots;
+    }
+
+    public void setShoots(ArrayList<Shoot> shoots) {
+        this.shoots = shoots;
+    }
+
+    public ArrayList<SuperShoot> getSuperShoots() {
+        return superShoots;
+    }
+
+    public void setSuperShoots(ArrayList<SuperShoot> superShoots) {
+        this.superShoots = superShoots;
+    }
+
+    public int getLife() {
+        return life;
+    }
+
+    public void setLife(int life) {
+        this.life = life;
     }
 }

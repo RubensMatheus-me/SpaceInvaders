@@ -7,7 +7,6 @@ import javax.swing.*;
 
 public class Game extends JFrame {
 
-
     public Game() {
         add(new Level());
         setTitle("Game by Rubao"); //nome da janela
@@ -18,6 +17,8 @@ public class Game extends JFrame {
         setVisible(true); // define a visibilidade da janela como visivel(true)
 
     }
-
+    public static void main (String[] args) {
+        new Game();
+    }
 
 }

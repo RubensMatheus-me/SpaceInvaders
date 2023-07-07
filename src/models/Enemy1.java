@@ -22,7 +22,6 @@ public class Enemy1 extends GraphicElement {
     @Override
     public void update() {
         this.positionY += SPEED;
-
     }
 
     public static int getSPEED() {

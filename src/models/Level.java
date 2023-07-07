@@ -1,7 +1,5 @@
 package models;
 
-import org.w3c.dom.css.Rect;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -16,6 +14,7 @@ public class Level extends JPanel implements ActionListener, KeyListener {
     protected ArrayList<ImageIcon> lifes = new ArrayList<>();
     protected boolean inGame;
     private int decay = 2;
+    private Enemy1 targetEnemy;
 
     private static final int DELAY = 5;
     private static final int HEIGHT_WINDOW = 1280;
@@ -26,6 +25,7 @@ public class Level extends JPanel implements ActionListener, KeyListener {
         setFocusable(true);
         setDoubleBuffered(true);
 
+        //adicionando a vida ao arraylist
         lifes.add(new ImageIcon("src/resources/vida.png"));
         lifes.add(new ImageIcon("src/resources/vida.png"));
         lifes.add(new ImageIcon("src/resources/vida.png"));
@@ -57,6 +57,7 @@ public class Level extends JPanel implements ActionListener, KeyListener {
             int y = (int)(Math.random() * -200 - 150); // altura
             rec = new Rectangle(x, y, 50, 50);
 
+            //método para os inimigos nao nascerem um em cima do outro
             for(int j = 0;j<enemy1.size();j++) {
                 if(enemy1.get(j).getBounds().intersects(rec)) {
                     System.out.println("BOUNDS" + overlap);
@@ -69,43 +70,30 @@ public class Level extends JPanel implements ActionListener, KeyListener {
             }
 
         }
-
-
-//        for (int i = 0; i < coord.length; i++) {
-//            System.out.println("AAA");
-//            Rectangle rec = new Rectangle(0, 0, 0, 0);
-//            int x, y;
-//            do {
-//                System.out.println("BBB");
-//                x = (int)(Math.random() * -8000 + 1280); //OITO MIL???
-//                y = (int)(Math.random() * -3000 + 35); // altura
-//                rec.setBounds(x, y, 50, 50);
-//            } while(enemy1.stream().allMatch(e -> e.getBounds().intersects(rec)));
-//            enemy1.add(new Enemy1(x, y));
-//        }
-
-
     }
-
-
     public void paint(Graphics g) {
         Graphics2D graphics = (Graphics2D) g;
         if (inGame == true) {
             graphics.drawImage(background, 0, 0, null);
             graphics.drawImage(player.getImage(), player.getPositionX(), player.getPositionY(), this);
 
-            for(ImageIcon life : lifes) {
-               graphics.drawImage(life.getImage(),0 ,0,null);
-               graphics.drawImage(life.getImage(),50 ,0,null);
-                graphics.drawImage(life.getImage(),100 ,0,null);
+            for(int i = 0; i < lifes.size(); i++) {
+                graphics.drawImage(lifes.get(i).getImage(), 50 * i, 0, null);
             }
 
 
-            ArrayList<Bullet> bullets = player.getBullets();
-            for (Bullet bullet : bullets) {
-                bullet.load();
+            ArrayList<Shoot> shoots = player.getShoots();
+            for (Shoot shoot : shoots) {
+                shoot.load();
 
-                graphics.drawImage(bullet.getImage(), bullet.getPositionX(), bullet.getPositionY(), this);
+                graphics.drawImage(shoot.getImage(), shoot.getPositionX(), shoot.getPositionY(), this);
+            }
+
+            ArrayList<SuperShoot> superShoots = player.getSuperShoots();
+            for (SuperShoot superShoot : superShoots) {
+                superShoot.load();
+
+                graphics.drawImage(superShoot.getImage(), superShoot.getPositionX(), superShoot.getPositionY(), this);
             }
 
             for (int o = 0; o < enemy1.size(); o++) {
@@ -114,9 +102,10 @@ public class Level extends JPanel implements ActionListener, KeyListener {
                 graphics.drawImage(in.getImage(), in.getPositionX(), in.getPositionY(), this);
             }
         }
+
         else {
             ImageIcon gameOver = new ImageIcon("src/resources/gamerover.png");
-            graphics.drawImage(gameOver.getImage(), 450, 100, null);
+            graphics.drawImage(gameOver.getImage(), 400, 100, null);
         }
 
         g.dispose();
@@ -125,14 +114,31 @@ public class Level extends JPanel implements ActionListener, KeyListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         player.update();
-        ArrayList<Bullet> bullets = player.getBullets();
-        for (int i = 0; i < bullets.size(); i++) {
-            if (bullets.get(i).getPositionY() > HEIGHT_WINDOW) {
-                bullets.remove(i);
+        ArrayList<SuperShoot> superShoots = player.getSuperShoots();
+        for (int j = 0; j < superShoots.size(); j++) {
+
+            //removendo os supertiros da tela
+            if (superShoots.get(j).getPositionY() < 0) {
+                superShoots.remove(j);
+                System.out.println("tiro removido");
             }
             else {
-                bullets.get(i).update();
+                superShoots.get(j).update();
             }
+
+        }
+
+        ArrayList<Shoot> shoots = player.getShoots();
+        //removendo os tiros da tela
+        for (int i = 0; i < shoots.size(); i++) {
+            if (shoots.get(i).getPositionY() < 0) {
+                shoots.remove(i);
+                System.out.println("tiro removido");
+            }
+            else {
+                shoots.get(i).update();
+            }
+
         }
         for (int o = 0; o < enemy1.size(); o++) {
             Enemy1 in = enemy1.get(o);
@@ -140,6 +146,7 @@ public class Level extends JPanel implements ActionListener, KeyListener {
                 in.update();
             }else {
                 enemy1.remove(o);
+                System.out.println("inimigo morto");
 
             }
         }
@@ -151,34 +158,36 @@ public class Level extends JPanel implements ActionListener, KeyListener {
         Rectangle formShip = player.getBounds();
         Rectangle formShoot;
         Rectangle formEnemy1;
+        Rectangle formSuperShoot;
 
+        //colisão da nave com o inimigo
         for (int i = 0; i < enemy1.size(); i++) {
             Enemy1 tempEnemy1 = enemy1.get(i);
             formEnemy1 = tempEnemy1.getBounds();
+
             if (formShip.intersects(formEnemy1)) {
                 player.setVisible(false);
                 tempEnemy1.setVisible(false);
                 enemy1.remove(i);
 
-                //ImageIcon image = new ImageIcon("src/resources/semVida.png");
-                //lifes.get(1).setImage(image.getImage());
-                //ImageIcon image = new ImageIcon("src/resources/semVida.png");
-                //lifes.get(0).setImage(image.getImage());
-                lifes.remove(2);
-                decay -=1;
+                //definindo a troca de imagem quando a nave perde vida
+                ImageIcon image = new ImageIcon("src/resources/semVida.png");
+                lifes.get(decay).setImage(image.getImage());
+                decay -= 1;
+
                 //definindo a queda da vida a cada colisao com o inimigo
-                player.LIFE -= 1;
-                if (player.LIFE == 0) {
+                player.life -= 1;
+                if (player.life == 0 || lifes.size() == 0) {
                     inGame = false;
                 }
             }
 
         }
-
-        List<Bullet> bullets = player.getBullets();
-        for (int j = 0; j < bullets.size(); j++) {
-            Bullet tempBullet = bullets.get(j);
-            formShoot = tempBullet.getBounds();
+        //colisao do tiro com o inimigo
+        List<Shoot> shoots = player.getShoots();
+        for (int j = 0; j < shoots.size(); j++) {
+            Shoot tempShoot = shoots.get(j);
+            formShoot = tempShoot.getBounds();
 
             for (int o = 0; o < enemy1.size(); o++) {
                 Enemy1 tempEnemy1 = enemy1.get(o);
@@ -186,12 +195,33 @@ public class Level extends JPanel implements ActionListener, KeyListener {
 
                 if (formShoot.intersects(formEnemy1)) {
                     tempEnemy1.setVisible(false);
-                    tempBullet.setVisible(false);
-                    bullets.remove(j);
+                    tempShoot.setVisible(false);
+                    shoots.remove(j);
                 }
             }
         }
-    }
+        //colisao do supertiro com o inimigo
+        List<SuperShoot> superShoots = player.getSuperShoots();
+        for (int j = 0; j < superShoots.size(); j++) {
+            SuperShoot tempSuperShoot = superShoots.get(j);
+            formSuperShoot = tempSuperShoot.getBounds();
+
+            for (int o = 0; o < enemy1.size(); o++) {
+                Enemy1 tempEnemy1 = enemy1.get(o);
+                formEnemy1 = tempEnemy1.getBounds();
+
+                if (formSuperShoot.intersects(formEnemy1)) {
+                    tempEnemy1.setVisible(false);
+                    tempSuperShoot.setVisible(false);
+                    superShoots.remove(j);
+                }
+
+                }
+            }
+        }
+
+
+
     ActionListener newActionLister = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -214,6 +244,9 @@ public class Level extends JPanel implements ActionListener, KeyListener {
     public void keyReleased(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
             player.shoot();
+
+        } else if (e.getKeyCode() == KeyEvent.VK_SHIFT) {
+            player.superShoot();
         }
         player.stop(e);
     }
