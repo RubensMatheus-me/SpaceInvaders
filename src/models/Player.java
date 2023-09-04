@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class Player extends GraphicElement {
     private ArrayList<Shoot> shoots;
     private ArrayList<SuperShoot> superShoots;
+    private int score;
 
     private static final int DESLOCATION = 5;
     private static final int INITIAL_DESLOCATIONX = 550;
@@ -33,6 +34,26 @@ public class Player extends GraphicElement {
     public void update() {
         positionX += deslocationX;
         positionY += deslocationY;
+
+        collisionBorder();
+    }
+
+
+
+    public void collisionBorder() {
+        if (positionX < 0) {
+              setPositionX(0);
+        } else if (positionX + widthImage > 1220) {
+            int maxBorderX = 1220 - widthImage;
+            setPositionX(maxBorderX);
+        }
+        if (positionY < 0) {
+            setPositionY(0);
+        } else if (getPositionY() + heightImage > 630) {
+            int maxBorderY = 630 - heightImage;
+            setPositionY(maxBorderY);
+
+        }
     }
 
     public void simpleBullets() {
@@ -122,5 +143,13 @@ public class Player extends GraphicElement {
 
     public void setLife(int life) {
         this.life = life;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 }
