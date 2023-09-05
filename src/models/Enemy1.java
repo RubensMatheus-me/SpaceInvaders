@@ -6,7 +6,7 @@ import java.awt.*;
 public class Enemy1 extends GraphicElement {
 
     //private static final int WIDTH = 720;
-    private static int SPEED = 5;
+    private static int SPEED = 3;
     public Enemy1(int positionX, int positionY) {
         this.positionX = positionX;
         this.positionY = positionY;
