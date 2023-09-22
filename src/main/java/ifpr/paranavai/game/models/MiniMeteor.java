@@ -1,4 +1,4 @@
-package models;
+package ifpr.paranavai.game.models;
 
 import javax.swing.*;
 import java.util.Random;
@@ -13,7 +13,7 @@ public class MiniMeteor extends GraphicElement{
     }
     @Override
     public void load() {
-        ImageIcon reference = new ImageIcon("src/resources/miniMeteor.png");
+        ImageIcon reference = new ImageIcon(getClass().getResource("/miniMeteor.png"));
         image = reference.getImage();
         this.width = image.getWidth(null);
         this.height = image.getHeight(null);

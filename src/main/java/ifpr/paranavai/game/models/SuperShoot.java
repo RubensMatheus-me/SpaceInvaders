@@ -1,9 +1,6 @@
-package models;
+package ifpr.paranavai.game.models;
 
 import javax.swing.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.util.ArrayList;
 
 public class SuperShoot extends GraphicElement {
     private static final int WIDTH = 720;
@@ -18,7 +15,7 @@ public class SuperShoot extends GraphicElement {
     }
     @Override
     public void load() {
-        ImageIcon reference = new ImageIcon("src/resources/superShoot.png");
+        ImageIcon reference = new ImageIcon(getClass().getResource("/superShoot.png"));
         image = reference.getImage();
 
         this.width = image.getWidth(null);

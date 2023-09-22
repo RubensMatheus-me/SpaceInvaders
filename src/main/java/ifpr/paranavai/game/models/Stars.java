@@ -1,4 +1,4 @@
-package models;
+package ifpr.paranavai.game.models;
 
 import javax.swing.*;
 import java.util.Random;
@@ -13,7 +13,7 @@ public class Stars extends GraphicElement{
         }
         @Override
         public void load() {
-            ImageIcon reference = new ImageIcon("src/resources/star.png");
+            ImageIcon reference = new ImageIcon(getClass().getResource("/star.png"));
             image = reference.getImage();
             this.width = image.getWidth(null);
             this.height = image.getHeight(null);
@@ -39,6 +39,6 @@ public class Stars extends GraphicElement{
         }
 
         public static void setSPEED(int SPEED) {
-            models.Stars.SPEED = SPEED;
+            Stars.SPEED = SPEED;
         }
 }

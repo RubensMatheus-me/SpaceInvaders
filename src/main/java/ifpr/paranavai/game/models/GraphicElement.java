@@ -1,4 +1,4 @@
-package models;
+package ifpr.paranavai.game.models;
 
 import java.awt.Image;
 import java.awt.Rectangle;

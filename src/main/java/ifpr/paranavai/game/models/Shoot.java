@@ -1,4 +1,4 @@
-package models;
+package ifpr.paranavai.game.models;
 
 import javax.swing.*;
 
@@ -13,7 +13,7 @@ public class Shoot extends GraphicElement {
     }
 
     public void load() {
-        ImageIcon reference = new ImageIcon("src/resources/bullet.png");
+        ImageIcon reference = new ImageIcon(getClass().getResource("/bullet.png"));
         image = reference.getImage();
 
         this.width = image.getWidth(null);
