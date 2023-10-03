@@ -1,6 +1,9 @@
 package ifpr.paranavai.game.game;
 
+import Connection.HibernateUtil;
+import ifpr.paranavai.game.models.Gamer;
 import ifpr.paranavai.game.models.Level;
+import org.hibernate.Session;
 
 import javax.swing.*;
 
@@ -20,6 +23,13 @@ public class Game extends JFrame {
 
     }
     public static void main (String[] args) {
+        Session session = HibernateUtil.getSession();
+        session.beginTransaction();
+        Gamer local = new Gamer("Rubao");
+        session.save(local);
+        session.getTransaction().commit();
+        HibernateUtil.encerraSession();
+
         new Game();
     }
 

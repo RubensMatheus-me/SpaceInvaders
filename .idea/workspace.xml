@@ -4,38 +4,50 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0ecce16-1c63-49fe-8f32-d46116e134e9" name="Changes" comment="spid-002">
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    <list default="true" id="a0ecce16-1c63-49fe-8f32-d46116e134e9" name="Changes" comment="Criando conexão com o banco de dados com Hibernate e Maven">
+      <changelist_data name="Rubens Matheus" email="112494717+rubensmatheus-me@users.noreply.github.com" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Connection/HibernateUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/Gamer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Connection/HibernateUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Mochtroid.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Ship3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/backgroundGame.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/bullet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/gameover.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/gamerover.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/game/Game.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/Enemy1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/Gamer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/GraphicElement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/Level$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/Level.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/MiniMeteor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/Player.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/Shoot.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/Stars.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/SuperShoot.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/maxresdefault.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/miniMeteor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/new background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/semVida.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/shipflyingfireDOWN.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/shipflyingfireLEFT.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/shipflyingfireRIGHT.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/shipflyingstoped.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/shipflyngfireUP.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/shoot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/star.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/superShoot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/vida.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JogoSpaceInvaders.iml" beforeDir="false" afterPath="$PROJECT_DIR$/JogoSpaceInvaders.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Enemy1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/Enemy1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/GraphicElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/GraphicElement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/MiniMeteor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/MiniMeteor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Shoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/Shoot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Stars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/Stars.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/SuperShoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/SuperShoot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/Mochtroid.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Mochtroid.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/Ship3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Ship3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/backgroundGame.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/backgroundGame.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/bullet.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bullet.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/gameover.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/gameover.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/gamerover.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/gamerover.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/maxresdefault.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/maxresdefault.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/miniMeteor.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/miniMeteor.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/new background.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/new background.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/semVida.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/semVida.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/shipflyingfireDOWN.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shipflyingfireDOWN.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/shipflyingfireLEFT.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shipflyingfireLEFT.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/shipflyingfireRIGHT.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shipflyingfireRIGHT.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/shipflyingstoped.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shipflyingstoped.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/shipflyngfireUP.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shipflyngfireUP.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/shoot.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shoot.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/star.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/star.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/superShoot.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/superShoot.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/vida.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vida.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JogoSpaceInvaders.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/game/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +62,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Rubens Matheus &lt;112494717+rubensmatheus-me@users.noreply.github.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="main" />
@@ -60,6 +77,13 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="jdkForImporter" value="#JAVA_HOME" />
+      </MavenImportingSettings>
+    </option>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -79,13 +103,17 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "v1.2",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/Aluno/IdeaProjects/SpaceInvaders/src/main/resources",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -98,34 +126,6 @@
       <recent name="C:\Users\mateu\OneDrive\Área de Trabalho\coding\SpaceInvaders\src\resources" />
       <recent name="C:\Users\yurih\IdeaProjects\SpaceInvaders\src\resources" />
     </key>
-  </component>
-  <component name="RunManager">
-    <configuration name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="game.Game" />
-      <module name="JogoSpaceInvaders" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="game.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="JogoSpaceInvaders" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Game" />
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -175,7 +175,9 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="spid-002" />
-    <option name="LAST_COMMIT_MESSAGE" value="spid-002" />
+    <MESSAGE value="Delete out/production/JogoSpaceInvaders directory" />
+    <MESSAGE value="Criando conexão com o banco de dados com Hibernate e Maven" />
+    <option name="LAST_COMMIT_MESSAGE" value="Criando conexão com o banco de dados com Hibernate e Maven" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

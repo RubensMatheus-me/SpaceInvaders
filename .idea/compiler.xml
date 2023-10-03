@@ -9,8 +9,5 @@
         <module name="JogoSpaceInvaders" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="JogoSpaceInvaders" target="19" />
-    </bytecodeTargetLevel>
   </component>
 </project>
