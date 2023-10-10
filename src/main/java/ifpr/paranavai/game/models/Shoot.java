@@ -1,7 +1,11 @@
 package ifpr.paranavai.game.models;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.swing.*;
 
+@Entity
+@Table(name = "tb_shoot")
 public class Shoot extends GraphicElement {
     private static final int WIDTH = 720;
     private static int SPEED = 10;

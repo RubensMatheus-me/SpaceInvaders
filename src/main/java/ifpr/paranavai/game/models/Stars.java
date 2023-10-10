@@ -1,8 +1,12 @@
 package ifpr.paranavai.game.models;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.swing.*;
 import java.util.Random;
 
+@Entity
+@Table(name = "tb_stars")
 public class Stars extends GraphicElement{
         //private static final int WIDTH = 720;
         private static int SPEED = 5;

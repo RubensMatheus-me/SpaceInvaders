@@ -24,12 +24,6 @@ public class Game extends JFrame {
     }
     public static void main (String[] args) {
         Session session = HibernateUtil.getSession();
-        session.beginTransaction();
-        Gamer local = new Gamer("Rubao");
-        session.save(local);
-        session.getTransaction().commit();
-        HibernateUtil.encerraSession();
-
         new Game();
     }
 

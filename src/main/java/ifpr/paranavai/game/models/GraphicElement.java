@@ -1,19 +1,37 @@
 package ifpr.paranavai.game.models;
 
+import javax.persistence.*;
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class GraphicElement {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_graphic_element")
+    private Integer idGraphicElement;
+
+    @Column(name = "position_x")
     protected int positionX;
+    @Column(name = "position_y")
     protected int positionY;
+    @Column(name = "deslocation_x")
     protected int deslocationX;
+    @Column(name = "deslocation_y")
     protected int deslocationY;
+    @Transient
     protected Image image;
+    @Column(name = "height")
     protected int height;
+    @Column(name = "width")
     protected int width;
+    @Column(name = "width_image")
     protected int widthImage;
+    @Column(name = "height_image")
     protected int heightImage;
+    @Column(name = "is_visible")
     protected boolean isVisible;
 
     public GraphicElement() {
@@ -113,5 +131,13 @@ public abstract class GraphicElement {
 
     public void setHeightImage(int heightImage) {
         this.heightImage = heightImage;
+    }
+
+    public Integer getIdGraphicElement() {
+        return idGraphicElement;
+    }
+
+    public void setIdGraphicElement(Integer idGraphicElement) {
+        this.idGraphicElement = idGraphicElement;
     }
 }

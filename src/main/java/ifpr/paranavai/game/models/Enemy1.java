@@ -1,7 +1,11 @@
 package ifpr.paranavai.game.models;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.swing.*;
 
+@Entity
+@Table(name = "tb_enemy1")
 public class Enemy1 extends GraphicElement {
 
     //private static final int WIDTH = 720;

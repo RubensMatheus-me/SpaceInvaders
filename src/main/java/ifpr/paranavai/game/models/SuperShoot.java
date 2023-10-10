@@ -1,10 +1,16 @@
 package ifpr.paranavai.game.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.swing.*;
 
+@Entity
+@Table(name = "tb_super_shoot")
 public class SuperShoot extends GraphicElement {
     private static final int WIDTH = 720;
     private static int SPEED = 10;
+    @Column(name = "direction")
     private int direction;
 
     public SuperShoot(int positionX, int positionY, int direction) {

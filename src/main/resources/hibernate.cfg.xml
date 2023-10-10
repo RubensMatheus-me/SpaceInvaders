@@ -20,10 +20,13 @@
 
         <!-- Classes que serão persistidas no tutorial -->
         <mapping class="ifpr.paranavai.game.models.Gamer" />
-
-
-
-
+        <mapping class="ifpr.paranavai.game.models.Player" />
+        <mapping class="ifpr.paranavai.game.models.Enemy1" />
+        <mapping class="ifpr.paranavai.game.models.MiniMeteor" />
+        <mapping class="ifpr.paranavai.game.models.Shoot" />
+        <mapping class="ifpr.paranavai.game.models.SuperShoot" />
+        <mapping class="ifpr.paranavai.game.models.Stars" />
+        <mapping class="ifpr.paranavai.game.models.Level" />
 
         <!-- Classes que serão persistidas em sala e/ou trabalho -->
         <!--

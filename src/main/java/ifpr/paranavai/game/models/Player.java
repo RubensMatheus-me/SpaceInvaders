@@ -1,18 +1,28 @@
 package ifpr.paranavai.game.models;
 
+import javax.persistence.*;
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
+@Entity
+@Table(name = "tb_player")
 public class Player extends GraphicElement {
+    //@OneToMany(cascade = CascadeType.ALL, mappedBy = "fk_shoot")//foreign key
+    @Transient
     private ArrayList<Shoot> shoots;
+    //@OneToMany(cascade = CascadeType.ALL, mappedBy = "fk_super_shoot") //foreign key
+    @Transient
     private ArrayList<SuperShoot> superShoots;
+    @Column(name = "score")
     private int score;
+    @Column(name = "life")
+    protected int life = 3;
 
     private static final int DESLOCATION = 5;
     private static final int INITIAL_DESLOCATIONX = 550;
     private static final int INITIAL_DESLOCATIONY = 550;
-    protected int life = 3;
+
 
     public Player() {
         this.positionX = INITIAL_DESLOCATIONX;

@@ -1,27 +1,38 @@
 package ifpr.paranavai.game.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Table(name = "tb_level")
 public class Level extends JPanel implements ActionListener, KeyListener {
 
+    @Transient
     private Image background;
+    @Column(name = "player")
     private Player player;
+    @Transient
     private Timer timer;
+    @Transient
     protected ArrayList<ImageIcon> lifes = new ArrayList<>(4);
+    @Column(name = "in_game")
     protected boolean inGame;
+    @Transient
     private int decay = 2;
-    private Enemy1 targetEnemy;
-
-    private static final int DELAY = 5;
-    private static final int HEIGHT_WINDOW = 1280;
-    private static final int SCORE_FOR_ENEMIES = 10;
+    @Transient
     protected List<Enemy1> enemy1 = new ArrayList<Enemy1>();
+    @Transient
     protected List<MiniMeteor> miniMeteors = new ArrayList<MiniMeteor>();
+    @Transient
     protected List<Stars> stars = new ArrayList<Stars>();
+    private static final int DELAY = 5;
+    private static final int SCORE_FOR_ENEMIES = 10;
 
 
     public Level() {
