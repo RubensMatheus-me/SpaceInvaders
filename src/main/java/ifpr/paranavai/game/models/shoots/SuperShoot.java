@@ -1,14 +1,17 @@
-package ifpr.paranavai.game.models;
+package ifpr.paranavai.game.models.shoots;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import ifpr.paranavai.game.models.GraphicElement;
+import ifpr.paranavai.game.models.Player;
+
+import javax.persistence.*;
 import javax.swing.*;
 
 @Entity
 @Table(name = "tb_super_shoot")
 public class SuperShoot extends GraphicElement {
-    private static final int WIDTH = 720;
+    @ManyToOne
+    @JoinColumn(name = "fk_player")
+    private Player player;
     private static int SPEED = 10;
     @Column(name = "direction")
     private int direction;
@@ -50,5 +53,13 @@ public class SuperShoot extends GraphicElement {
 
     public void setSPEED(int SPEED) {
         SuperShoot.SPEED = SPEED;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 }

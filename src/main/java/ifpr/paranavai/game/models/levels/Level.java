@@ -1,7 +1,13 @@
-package ifpr.paranavai.game.models;
+package ifpr.paranavai.game.models.levels;
+
+import ifpr.paranavai.game.models.Player;
+import ifpr.paranavai.game.models.enemies.Enemy1;
+import ifpr.paranavai.game.models.enemies.MiniMeteor;
+import ifpr.paranavai.game.models.scenario.Stars;
+import ifpr.paranavai.game.models.shoots.Shoot;
+import ifpr.paranavai.game.models.shoots.SuperShoot;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.swing.*;
@@ -32,6 +38,7 @@ public class Level extends JPanel implements ActionListener, KeyListener {
     @Transient
     protected List<Stars> stars = new ArrayList<Stars>();
     private static final int DELAY = 5;
+    public Menu menu;
     private static final int SCORE_FOR_ENEMIES = 10;
 
 
@@ -62,6 +69,8 @@ public class Level extends JPanel implements ActionListener, KeyListener {
         Timer enemySpawn = new Timer(2000, newActionLister);
         enemySpawn.start();
     }
+
+
     public void initializeEnemies() {
         int coord[] = new int [4]; //colocando 4 inimigos de uma vez
         Rectangle rec;
@@ -117,7 +126,6 @@ public class Level extends JPanel implements ActionListener, KeyListener {
             graphics.drawImage(background, 0, 0, null);
             drawningScore(graphics);
 
-
             for (int z = 0; z < miniMeteors.size(); z++) {
                 MiniMeteor s = miniMeteors.get(z);
                 s.load();
@@ -132,14 +140,14 @@ public class Level extends JPanel implements ActionListener, KeyListener {
             }
 
 
-            ArrayList<Shoot> shoots = player.getShoots();
+            List<Shoot> shoots = player.getShoots();
             for (Shoot shoot : shoots) {
                 shoot.load();
 
                 graphics.drawImage(shoot.getImage(), shoot.getPositionX(), shoot.getPositionY(), this);
             }
 
-            ArrayList<SuperShoot> superShoots = player.getSuperShoots();
+            List<SuperShoot> superShoots = player.getSuperShoots();
             for (SuperShoot superShoot : superShoots) {
                 superShoot.load();
 
@@ -190,7 +198,7 @@ public class Level extends JPanel implements ActionListener, KeyListener {
             }
         }
 
-        ArrayList<SuperShoot> superShoots = player.getSuperShoots();
+        List<SuperShoot> superShoots = player.getSuperShoots();
         for (int j = 0; j < superShoots.size(); j++) {
 
             //removendo os supertiros da tela
@@ -204,7 +212,7 @@ public class Level extends JPanel implements ActionListener, KeyListener {
 
         }
 
-        ArrayList<Shoot> shoots = player.getShoots();
+        List<Shoot> shoots = player.getShoots();
         //removendo os tiros da tela
         for (int i = 0; i < shoots.size(); i++) {
             if (shoots.get(i).getPositionY() < 0) {
@@ -286,8 +294,9 @@ public class Level extends JPanel implements ActionListener, KeyListener {
                 decay -= 1;
 
                 //definindo a queda da vida a cada colisao com o inimigo
-                player.life -= 1;
-                if (player.life == 0 || lifes.size() == 0) {
+
+                player.setLife(player.getLife() - 1);
+                if (player.getLife() == 0 || lifes.size() == 0) {
                     inGame = false;
                 }
             }
@@ -311,8 +320,8 @@ public class Level extends JPanel implements ActionListener, KeyListener {
                 decay -= 1;
 
                 //definindo a queda da vida a cada colisao com o inimigo
-                player.life -= 1;
-                if (player.life == 0 || lifes.size() == 0) {
+                player.setLife(player.getLife() - 1);
+                if (player.getLife() == 0 || lifes.size() == 0) {
                     inGame = false;
                 }
             }

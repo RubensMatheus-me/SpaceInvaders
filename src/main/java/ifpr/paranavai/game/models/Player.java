@@ -1,23 +1,26 @@
 package ifpr.paranavai.game.models;
 
+import ifpr.paranavai.game.models.shoots.Shoot;
+import ifpr.paranavai.game.models.shoots.SuperShoot;
+
 import javax.persistence.*;
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "tb_player")
 public class Player extends GraphicElement {
-    //@OneToMany(cascade = CascadeType.ALL, mappedBy = "fk_shoot")//foreign key
-    @Transient
-    private ArrayList<Shoot> shoots;
+    @OneToMany(mappedBy = "player")//foreign key
+    private List<Shoot> shoots;
     //@OneToMany(cascade = CascadeType.ALL, mappedBy = "fk_super_shoot") //foreign key
-    @Transient
-    private ArrayList<SuperShoot> superShoots;
+    @OneToMany(mappedBy = "player")
+    private List<SuperShoot> superShoots;
     @Column(name = "score")
     private int score;
     @Column(name = "life")
-    protected int life = 3;
+    private int life = 3;
 
     private static final int DESLOCATION = 5;
     private static final int INITIAL_DESLOCATIONX = 550;
@@ -127,19 +130,14 @@ public class Player extends GraphicElement {
         this.superShoots.add(superShoot);
     }
 
-    public ArrayList<Shoot> getShoots() {
+    public void setShoots(List<Shoot> shoots) {
+        this.shoots = shoots;
+    }
+    public List<Shoot> getShoots() {
         return shoots;
     }
 
-    public void setBullets(ArrayList<Shoot> shoots) {
-        this.shoots = shoots;
-    }
-
-    public void setShoots(ArrayList<Shoot> shoots) {
-        this.shoots = shoots;
-    }
-
-    public ArrayList<SuperShoot> getSuperShoots() {
+    public List<SuperShoot> getSuperShoots() {
         return superShoots;
     }
 

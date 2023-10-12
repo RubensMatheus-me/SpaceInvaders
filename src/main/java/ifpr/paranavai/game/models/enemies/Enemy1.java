@@ -1,32 +1,32 @@
-package ifpr.paranavai.game.models;
+package ifpr.paranavai.game.models.enemies;
+
+import ifpr.paranavai.game.models.GraphicElement;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.swing.*;
 
 @Entity
-@Table(name = "tb_shoot")
-public class Shoot extends GraphicElement {
-    private static final int WIDTH = 720;
-    private static int SPEED = 10;
+@Table(name = "tb_enemy1")
+public class Enemy1 extends GraphicElement {
 
-    public Shoot(int positionX, int positionY) {
+    //private static final int WIDTH = 720;
+    private static int SPEED = 3;
+    public Enemy1(int positionX, int positionY) {
         this.positionX = positionX;
         this.positionY = positionY;
         isVisible = true;
     }
-
+    @Override
     public void load() {
-        ImageIcon reference = new ImageIcon(getClass().getResource("/bullet.png"));
+        ImageIcon reference = new ImageIcon(getClass().getResource("/Mochtroid.png"));
         image = reference.getImage();
-
         this.width = image.getWidth(null);
         this.height = image.getHeight(null);
     }
-
     @Override
     public void update() {
-        this.positionY = this.positionY - SPEED;
+        this.positionY += SPEED;
     }
 
     public static int getSPEED() {
@@ -34,6 +34,6 @@ public class Shoot extends GraphicElement {
     }
 
     public static void setSPEED(int SPEED) {
-        Shoot.SPEED = SPEED;
+        Enemy1.SPEED = SPEED;
     }
 }

@@ -1,4 +1,6 @@
-package ifpr.paranavai.game.models;
+package ifpr.paranavai.game.models.scenario;
+
+import ifpr.paranavai.game.models.GraphicElement;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -7,7 +9,7 @@ import java.util.Random;
 
 @Entity
 @Table(name = "tb_stars")
-public class Stars extends GraphicElement{
+public class Stars extends GraphicElement {
         //private static final int WIDTH = 720;
         private static int SPEED = 5;
         public Stars(int positionX, int positionY) {

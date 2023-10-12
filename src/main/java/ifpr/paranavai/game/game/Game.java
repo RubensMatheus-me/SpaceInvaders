@@ -2,7 +2,7 @@ package ifpr.paranavai.game.game;
 
 import Connection.HibernateUtil;
 import ifpr.paranavai.game.models.Gamer;
-import ifpr.paranavai.game.models.Level;
+import ifpr.paranavai.game.models.levels.Level;
 import org.hibernate.Session;
 
 import javax.swing.*;
@@ -10,8 +10,8 @@ import javax.swing.*;
 
 public class Game extends JFrame {
 
-    private static final int WIDTH = 1280;
-    private static final int HEIGHT = 720;
+    private static int WIDTH = 1280;
+    private static int HEIGHT = 720;
     public Game() {
         add(new Level());
         setTitle("Game by Rubao"); //nome da janela
@@ -24,7 +24,11 @@ public class Game extends JFrame {
     }
     public static void main (String[] args) {
         Session session = HibernateUtil.getSession();
+        //session.beginTransaction();
+        //Gamer local = new Gamer("Joãozinho");
+        //session.save(local);
+        //session.getTransaction().commit();
+        //HibernateUtil.encerraSession();
         new Game();
     }
-
 }

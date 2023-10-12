@@ -9,28 +9,24 @@
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/Enemy1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/Enemy1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/Gamer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/Gamer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/GraphicElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/GraphicElement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/MiniMeteor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/MiniMeteor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/Enemy1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/enemies/Enemy1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/levels/Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/MiniMeteor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/enemies/MiniMeteor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/Shoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/Shoot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/Stars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/Stars.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/SuperShoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/SuperShoot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/Shoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/shoots/Shoot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/Stars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/scenario/Stars.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/SuperShoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/shoots/SuperShoot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/game/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/game/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/Enemy1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/Enemy1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/Gamer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/Gamer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/GraphicElement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/GraphicElement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/Level$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/Level$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/Level.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/Level.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/MiniMeteor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/MiniMeteor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/Enemy1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/Level$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/Level.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/MiniMeteor.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/Shoot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/Shoot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/Stars.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/Stars.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/SuperShoot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/SuperShoot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/Shoot.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/Stars.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/SuperShoot.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

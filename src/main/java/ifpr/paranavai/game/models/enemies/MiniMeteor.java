@@ -1,4 +1,6 @@
-package ifpr.paranavai.game.models;
+package ifpr.paranavai.game.models.enemies;
+
+import ifpr.paranavai.game.models.GraphicElement;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -6,7 +8,7 @@ import javax.swing.*;
 import java.util.Random;
 @Entity
 @Table(name = "tb_mini_meteor")
-public class MiniMeteor extends GraphicElement{
+public class MiniMeteor extends GraphicElement {
     //private static final int WIDTH = 720;
     private static int SPEED = 2;
     public MiniMeteor(int positionX, int positionY) {
