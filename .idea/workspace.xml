@@ -6,27 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="a0ecce16-1c63-49fe-8f32-d46116e134e9" name="Changes" comment="Criando conexão com o banco de dados com Hibernate e Maven">
       <changelist_data name="Rubens Matheus" email="112494717+rubensmatheus-me@users.noreply.github.com" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/game/UI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/maruMonica.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/purisaBold.ttf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/Enemy1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/enemies/Enemy1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/levels/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/MiniMeteor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/enemies/MiniMeteor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/Shoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/shoots/Shoot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/Stars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/scenario/Stars.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/SuperShoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/shoots/SuperShoot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/levels/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/levels/Level.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/game/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/game/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/Enemy1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/Level$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/Level.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/MiniMeteor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/Shoot.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/Stars.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/SuperShoot.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,6 +89,7 @@
       <recent name="C:\Users\mateu\OneDrive\Área de Trabalho\coding\SpaceInvaders\src\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Aluno\IdeaProjects\SpaceInvaders\src\main\resources" />
       <recent name="C:\Users\mateu\OneDrive\Área de Trabalho\coding\SpaceInvaders\src\resources" />
       <recent name="C:\Users\yurih\IdeaProjects\SpaceInvaders\src\resources" />
     </key>
@@ -185,6 +173,11 @@
           <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/levels/Level.java</url>
+          <line>61</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

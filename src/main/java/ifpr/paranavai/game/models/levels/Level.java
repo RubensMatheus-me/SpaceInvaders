@@ -1,5 +1,6 @@
 package ifpr.paranavai.game.models.levels;
 
+import ifpr.paranavai.game.game.UI;
 import ifpr.paranavai.game.models.Player;
 import ifpr.paranavai.game.models.enemies.Enemy1;
 import ifpr.paranavai.game.models.enemies.MiniMeteor;
@@ -18,6 +19,7 @@ import java.util.List;
 
 @Table(name = "tb_level")
 public class Level extends JPanel implements ActionListener, KeyListener {
+    UI ui;
 
     @Transient
     private Image background;
@@ -41,10 +43,18 @@ public class Level extends JPanel implements ActionListener, KeyListener {
     public Menu menu;
     private static final int SCORE_FOR_ENEMIES = 10;
 
+    public int gameState;
+    public final int menuState = 0;
+    public final int pauseState = 1;
+
+
 
     public Level() {
+        inGame = false;
+        gameState = menuState;
         setFocusable(true);
         setDoubleBuffered(true);
+        this.ui = new UI(this);
 
         //adicionando a vida ao arraylist
         lifes.add(new ImageIcon(getClass().getResource("/vida.png")));
@@ -61,10 +71,14 @@ public class Level extends JPanel implements ActionListener, KeyListener {
         timer = new Timer(DELAY, this);
         timer.start();
 
+
+
+        //inGame = true;
+    }
+    public void setupGame() {
         initializeEnemies();
         initializeMiniMeteors();
         initializeStars();
-        inGame = true;
 
         Timer enemySpawn = new Timer(2000, newActionLister);
         enemySpawn.start();
@@ -120,61 +134,69 @@ public class Level extends JPanel implements ActionListener, KeyListener {
         g.setColor(new java.awt.Color(255, 255, 255));
         g.drawString(textScore, 1130, 30); // x, y
     }
+
     public void paint(Graphics g) {
         Graphics2D graphics = (Graphics2D) g;
-        if (inGame == true) {
-            graphics.drawImage(background, 0, 0, null);
-            drawningScore(graphics);
+        if (gameState == menuState) {
+            ui.draw(graphics);
 
-            for (int z = 0; z < miniMeteors.size(); z++) {
-                MiniMeteor s = miniMeteors.get(z);
-                s.load();
-                graphics.drawImage(s.getImage(), s.getPositionX(), s.getPositionY(), this);
+        }else {
+            if (inGame == true) {
+                graphics.drawImage(background, 0, 0, null);
+                setupGame();
+                drawningScore(graphics);
+
+                for (int z = 0; z < miniMeteors.size(); z++) {
+                    MiniMeteor s = miniMeteors.get(z);
+                    s.load();
+                    graphics.drawImage(s.getImage(), s.getPositionX(), s.getPositionY(), this);
+                }
+
+
+                graphics.drawImage(player.getImage(), player.getPositionX(), player.getPositionY(), this);
+
+                for(int i = 0; i < lifes.size(); i++) {
+                    graphics.drawImage(lifes.get(i).getImage(), 50 * i, 0, null);
+                }
+
+
+                List<Shoot> shoots = player.getShoots();
+                for (Shoot shoot : shoots) {
+                    shoot.load();
+
+                    graphics.drawImage(shoot.getImage(), shoot.getPositionX(), shoot.getPositionY(), this);
+                }
+
+                List<SuperShoot> superShoots = player.getSuperShoots();
+                for (SuperShoot superShoot : superShoots) {
+                    superShoot.load();
+
+                    graphics.drawImage(superShoot.getImage(), superShoot.getPositionX(), superShoot.getPositionY(), this);
+                }
+
+                for (int o = 0; o < enemy1.size(); o++) {
+                    Enemy1 in = enemy1.get(o);
+                    in.load();
+                    graphics.drawImage(in.getImage(), in.getPositionX(), in.getPositionY(), this);
+                }
+
+                for (int j = 0; j < stars.size(); j++) {
+                    Stars star = stars.get(j);
+                    star.load();
+                    graphics.drawImage(star.getImage(), star.getPositionX(), star.getPositionY(), this);
+                }
             }
 
 
-            graphics.drawImage(player.getImage(), player.getPositionX(), player.getPositionY(), this);
-
-            for(int i = 0; i < lifes.size(); i++) {
-                graphics.drawImage(lifes.get(i).getImage(), 50 * i, 0, null);
+            else {
+                ImageIcon gameOver = new ImageIcon(getClass().getResource("/gameover.png"));
+                graphics.drawImage(gameOver.getImage(), 0, 0, null);
             }
 
-
-            List<Shoot> shoots = player.getShoots();
-            for (Shoot shoot : shoots) {
-                shoot.load();
-
-                graphics.drawImage(shoot.getImage(), shoot.getPositionX(), shoot.getPositionY(), this);
-            }
-
-            List<SuperShoot> superShoots = player.getSuperShoots();
-            for (SuperShoot superShoot : superShoots) {
-                superShoot.load();
-
-                graphics.drawImage(superShoot.getImage(), superShoot.getPositionX(), superShoot.getPositionY(), this);
-            }
-
-            for (int o = 0; o < enemy1.size(); o++) {
-                Enemy1 in = enemy1.get(o);
-                in.load();
-                graphics.drawImage(in.getImage(), in.getPositionX(), in.getPositionY(), this);
-            }
-
-            for (int j = 0; j < stars.size(); j++) {
-                Stars star = stars.get(j);
-                star.load();
-                graphics.drawImage(star.getImage(), star.getPositionX(), star.getPositionY(), this);
-            }
+            g.dispose();
+        }
         }
 
-
-        else {
-            ImageIcon gameOver = new ImageIcon(getClass().getResource("/gameover.png"));
-            graphics.drawImage(gameOver.getImage(), 0, 0, null);
-        }
-
-        g.dispose();
-    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
