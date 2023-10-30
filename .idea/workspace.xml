@@ -6,14 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="a0ecce16-1c63-49fe-8f32-d46116e134e9" name="Changes" comment="Criando conexão com o banco de dados com Hibernate e Maven">
       <changelist_data name="Rubens Matheus" email="112494717+rubensmatheus-me@users.noreply.github.com" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/game/UI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/maruMonica.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/purisaBold.ttf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/game/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/game/UI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/levels/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/levels/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/game/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/game/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/game/UI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/game/UI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/levels/Level$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/levels/Level$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/levels/Level.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ifpr/paranavai/game/models/levels/Level.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,11 +172,6 @@
           <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/levels/Level.java</url>
-          <line>61</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

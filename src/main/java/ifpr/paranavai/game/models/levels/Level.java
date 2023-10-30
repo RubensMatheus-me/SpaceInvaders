@@ -45,7 +45,9 @@ public class Level extends JPanel implements ActionListener, KeyListener {
 
     public int gameState;
     public final int menuState = 0;
-    public final int pauseState = 1;
+    public final int playState = 1;
+
+    public final int pauseState = 2;
 
 
 
@@ -143,7 +145,7 @@ public class Level extends JPanel implements ActionListener, KeyListener {
         }else {
             if (inGame == true) {
                 graphics.drawImage(background, 0, 0, null);
-                setupGame();
+                //setupGame();
                 drawningScore(graphics);
 
                 for (int z = 0; z < miniMeteors.size(); z++) {
@@ -196,7 +198,6 @@ public class Level extends JPanel implements ActionListener, KeyListener {
             g.dispose();
         }
         }
-
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -411,10 +412,38 @@ public class Level extends JPanel implements ActionListener, KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         player.move(e);
+
+
+        int code = e.getKeyCode();
+        if(gameState == menuState) {
+            if (code == KeyEvent.VK_UP || code == KeyEvent.VK_W) {
+                ui.commandNum --;
+                if (ui.commandNum < 0) {
+                    ui.commandNum = 2;
+                }
+            }
+            if (code == KeyEvent.VK_DOWN || code == KeyEvent.VK_S) {
+                ui.commandNum ++;
+                if (ui.commandNum > 2) {
+                    ui.commandNum = 0;
+                }
+            }
+            if (code == KeyEvent.VK_ENTER) {
+                if (ui.commandNum == 0) {
+                    gameState = playState;
+                    inGame = true;
+                    setupGame();
+                }
+                if(ui.commandNum == 2) {
+                    System.exit(0);
+                }
+            }
+        }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
+
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
             player.shoot();
 

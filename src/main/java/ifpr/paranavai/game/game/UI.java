@@ -4,15 +4,19 @@ import ifpr.paranavai.game.models.levels.Level;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
 import java.io.IOException;
 import java.io.InputStream;
 
-public class UI {
+
+public class UI{
     Level lv;
     Graphics2D g2;
     Font maruMonica, purisaB;
-    int menuSize = 1;
+    public int tileSize = Game.getHEIGHT() / 9;
+    public int commandNum = 0;
     ImageIcon reference;
 
 
@@ -32,6 +36,7 @@ public class UI {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
     public void draw(Graphics2D g2) {
@@ -45,42 +50,57 @@ public class UI {
         }
     }
     public void drawMenuScreen() {
+        if (lv.gameState == lv.menuState) {
+            g2.setColor(new Color(0, 0, 0));
+            g2.fillRect(0, 0, Game.getWIDTH(), Game.getHEIGHT());
 
-        g2.setColor(new Color(0, 0, 0));
-        g2.fillRect(0, 0, Game.getWIDTH(), Game.getHEIGHT());
+            //nome do jogo
+            g2.setFont(g2.getFont().deriveFont(Font.BOLD, 96F));
+            String text = "JOGO RUBAO";
+            int x = getXforCenteredText(text);
+            int y = Game.getHEIGHT() / 6;
 
-        //nome do jogo
-        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 96F));
-        String text = "Jogo rubao";
-        int x = getXforCenteredText(text);
-        int y = Game.getHEIGHT() / 6;
+            //sombras
+            g2.setColor(Color.gray);
+            g2.drawString(text, x+ 5, y + 5);
 
-        //sombras
-        g2.setColor(Color.gray);
-        g2.drawString(text, x+ 5, y + 5);
+            //cor da fonte
+            g2.setColor(Color.white);
+            g2.drawString(text, x, y);
 
-        //cor da fonte
-        g2.setColor(Color.white);
-        g2.drawString(text, x, y);
+            //logo
+            x = Game.getWIDTH() / 2 - (Game.getHEIGHT()/ 14);
+            y += (Game.getHEIGHT()/ 2) / 5;
+            g2.drawImage(reference.getImage(), x, y,Game.getHEIGHT()/ 8,Game.getWIDTH() / 8, null);
 
-        //logo
-        x = Game.getWIDTH() / 2 - (Game.getHEIGHT()/ 14);
-        y += (Game.getHEIGHT()/ 2) / 5;
-        g2.drawImage(reference.getImage(), x, y,Game.getHEIGHT()/ 8,Game.getWIDTH() / 8, null);
+            //menu
+            g2.setFont(g2.getFont().deriveFont(Font.BOLD, 48F));
 
-        //menu
-        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 48F));
+            text = "NEW GAME";
+            x = getXforCenteredText(text);
+            y += tileSize * 3;
+            g2.drawString(text, x, y);
+            if (commandNum == 0) {
+                g2.drawString(">", (x - tileSize) + 35, y);
+            }
 
-        text = "NEW GAME";
-        x = getXforCenteredText(text);
-        y += (Game.getHEIGHT() / 5) * 2;
-        g2.drawString(text, x, y);
+            text = "LOAD GAME";
+            x = getXforCenteredText(text);
+            y += tileSize;
+            g2.drawString(text, x, y);
+            if (commandNum == 1) {
+                g2.drawString(">", (x - tileSize) + 35, y);
+            }
 
-        //arrumar
-        text = "LOAD GAME";
-        x = getXforCenteredText(text);
-        y += Game.getHEIGHT();
-        g2.drawString(text, x, y);
+            text = "QUIT";
+            x = getXforCenteredText(text);
+            y += tileSize ;
+            g2.drawString(text, x, y);
+            if (commandNum == 2) {
+                g2.drawString(">", (x - tileSize) + 35, y);
+            }
+        }
+
     }
 
     public int getXforCenteredText(String text) {
@@ -88,4 +108,5 @@ public class UI {
         int x = Game.getWIDTH() / 2 - length / 2;
         return x;
     }
+
 }
