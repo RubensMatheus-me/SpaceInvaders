@@ -1,8 +1,11 @@
 package ifpr.paranavai.game.models.scenario;
 
 import ifpr.paranavai.game.models.GraphicElement;
+import ifpr.paranavai.game.models.levels.Level;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.swing.*;
 import java.util.Random;
@@ -11,6 +14,9 @@ import java.util.Random;
 @Table(name = "tb_stars")
 public class Stars extends GraphicElement {
         //private static final int WIDTH = 720;
+        @ManyToOne
+        @JoinColumn(name = "fk_level")
+        private Level level;
         private static int SPEED = 5;
         public Stars(int positionX, int positionY) {
             this.positionX = positionX;

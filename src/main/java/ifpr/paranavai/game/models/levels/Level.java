@@ -8,36 +8,45 @@ import ifpr.paranavai.game.models.scenario.Stars;
 import ifpr.paranavai.game.models.shoots.Shoot;
 import ifpr.paranavai.game.models.shoots.SuperShoot;
 
-import javax.persistence.Column;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
-
+@Entity
 @Table(name = "tb_level")
 public class Level extends JPanel implements ActionListener, KeyListener {
     UI ui;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
 
+    private Integer id;
     @Transient
     private Image background;
+
+    @OneToOne
+    @JoinColumn(name = "level")
+
     @Column(name = "player")
     private Player player;
     @Transient
     private Timer timer;
+    //@OneToMany(mappedBy = "level")
     @Transient
-    protected ArrayList<ImageIcon> lifes = new ArrayList<>(4);
+    protected List<ImageIcon> lifes = new ArrayList<>(4);
     @Column(name = "in_game")
     protected boolean inGame;
     @Transient
     private int decay = 2;
-    @Transient
+    //one to many
+    @OneToMany(mappedBy = "level")
     protected List<Enemy1> enemy1 = new ArrayList<Enemy1>();
-    @Transient
+    //one to many
+    @OneToMany(mappedBy = "level")
     protected List<MiniMeteor> miniMeteors = new ArrayList<MiniMeteor>();
-    @Transient
+    //one to many
+    @OneToMany(mappedBy = "level")
     protected List<Stars> stars = new ArrayList<Stars>();
     private static final int DELAY = 5;
     public Menu menu;
@@ -393,7 +402,7 @@ public class Level extends JPanel implements ActionListener, KeyListener {
         }
 
 
-
+    @Transient
     ActionListener newActionLister = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {

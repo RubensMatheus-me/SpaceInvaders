@@ -16,7 +16,8 @@
         </property>
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">false</property>
-        <property name="hbm2ddl.auto">update</property>
+        <property name="hbm2ddl.auto">create-drop</property>
+        <property name="hibernate.drop-and-create">true</property>
 
         <!-- Classes que serão persistidas no tutorial -->
         <mapping class="ifpr.paranavai.game.models.Gamer" />

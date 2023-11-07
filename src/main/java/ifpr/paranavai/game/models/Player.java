@@ -1,5 +1,6 @@
 package ifpr.paranavai.game.models;
 
+import ifpr.paranavai.game.models.levels.Level;
 import ifpr.paranavai.game.models.shoots.Shoot;
 import ifpr.paranavai.game.models.shoots.SuperShoot;
 
@@ -12,6 +13,16 @@ import java.util.List;
 @Entity
 @Table(name = "tb_player")
 public class Player extends GraphicElement {
+    @OneToOne
+
+    private Level level;
+
+    //@GeneratedValue(strategy = GenerationType.AUTO)
+
+    //@Column(name = "id_player", unique = true, nullable = false)
+    //private Integer playerId;
+    @Column(name = "name", unique = true, nullable = false, length = 100)
+    private String name;
     @OneToMany(mappedBy = "player")//foreign key
     private List<Shoot> shoots;
     //@OneToMany(cascade = CascadeType.ALL, mappedBy = "fk_super_shoot") //foreign key
@@ -34,6 +45,9 @@ public class Player extends GraphicElement {
 
         shoots = new ArrayList<Shoot>();
         superShoots = new ArrayList<SuperShoot>();
+    }
+    public Player(String name) {
+        this.name = name;
     }
 
     @Override
@@ -159,5 +173,25 @@ public class Player extends GraphicElement {
 
     public void setScore(int score) {
         this.score = score;
+    }
+
+    //public Integer getPlayerId() {
+        //return playerId;
+    //}
+
+    //public void setPlayerId(Integer playerId) {
+        //this.playerId = playerId;
+    //}
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String nome) {
+        this.name = nome;
+    }
+
+    public void setSuperShoots(List<SuperShoot> superShoots) {
+        this.superShoots = superShoots;
     }
 }

@@ -1,14 +1,20 @@
 package ifpr.paranavai.game.models.enemies;
 
 import ifpr.paranavai.game.models.GraphicElement;
+import ifpr.paranavai.game.models.levels.Level;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.swing.*;
 import java.util.Random;
 @Entity
 @Table(name = "tb_mini_meteor")
 public class MiniMeteor extends GraphicElement {
+    @ManyToOne
+    @JoinColumn(name = "fk_level")
+    private Level level;
     //private static final int WIDTH = 720;
     private static int SPEED = 2;
     public MiniMeteor(int positionX, int positionY) {

@@ -3,10 +3,7 @@ package ifpr.paranavai.game.models.shoots;
 import ifpr.paranavai.game.models.GraphicElement;
 import ifpr.paranavai.game.models.Player;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.swing.*;
 
 @Entity
