@@ -28,11 +28,6 @@ public class Game extends JFrame {
 
     public static void main (String[] args) {
         Session session = HibernateUtil.getSession();
-        session.beginTransaction();
-        Player local = new Player("dasd323s");
-        PlayerService.insert(local);
-        session.getTransaction().commit();
-        HibernateUtil.encerraSession();
         new Game();
     }
 

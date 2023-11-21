@@ -13,12 +13,6 @@ public class SaveGame {
     Enemy1 enemy;
 
     public void saving() {
-        Enemy1Service.insert(enemy);
-        LevelService.insert(new Level());
-        MiniMeteorService.insert(new MiniMeteor());
-        PlayerService.insert(new Player());
-        ShootService.insert(new Shoot());
-        StarsService.insert(new Stars());
-        SuperShootService.insert(new SuperShoot());
+
     }
 }

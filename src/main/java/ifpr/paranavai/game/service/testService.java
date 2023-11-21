@@ -7,10 +7,7 @@ import java.util.List;
 
 public class testService {
     public static void main(String[] args) {
-        Player local = new Player("dasd323s");
-        PlayerService.insert(local);
-        PlayerService.refresh(local);
-        PlayerService.searchPlayer();
+
         /*
         List<Player> players = PlayerService.searchPlayer();
 

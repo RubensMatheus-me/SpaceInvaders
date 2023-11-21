@@ -21,8 +21,7 @@ public class Player extends GraphicElement {
 
     //@Column(name = "id_player", unique = true, nullable = false)
     //private Integer playerId;
-    @Column(name = "name", unique = true, nullable = false, length = 100)
-    private String name;
+
     @OneToMany(mappedBy = "player")//foreign key
     private List<Shoot> shoots;
     //@OneToMany(cascade = CascadeType.ALL, mappedBy = "fk_super_shoot") //foreign key
@@ -46,9 +45,7 @@ public class Player extends GraphicElement {
         shoots = new ArrayList<Shoot>();
         superShoots = new ArrayList<SuperShoot>();
     }
-    public Player(String name) {
-        this.name = name;
-    }
+
 
     @Override
     public void load() {
@@ -183,13 +180,6 @@ public class Player extends GraphicElement {
         //this.playerId = playerId;
     //}
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String nome) {
-        this.name = nome;
-    }
 
     public void setSuperShoots(List<SuperShoot> superShoots) {
         this.superShoots = superShoots;

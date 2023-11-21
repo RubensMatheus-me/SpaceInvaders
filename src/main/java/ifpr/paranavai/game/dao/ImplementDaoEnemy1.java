@@ -32,6 +32,7 @@ public class ImplementDaoEnemy1 implements DaoEnemy1{
             session.persist(enemy1);
             session.getTransaction().commit();
         } catch (Exception e) {
+            session.getTransaction().rollback();
             e.printStackTrace();
         }
     }

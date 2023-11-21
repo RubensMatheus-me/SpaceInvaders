@@ -1,15 +1,15 @@
 package ifpr.paranavai.game.view;
 
 import ifpr.paranavai.game.SaveGame;
+import ifpr.paranavai.game.dao.DaoPlayer;
+import ifpr.paranavai.game.dao.ImplementDaoPlayer;
 import ifpr.paranavai.game.models.Player;
 import ifpr.paranavai.game.models.enemies.Enemy1;
 import ifpr.paranavai.game.models.enemies.MiniMeteor;
 import ifpr.paranavai.game.models.scenario.Stars;
 import ifpr.paranavai.game.models.shoots.Shoot;
 import ifpr.paranavai.game.models.shoots.SuperShoot;
-import ifpr.paranavai.game.service.Enemy1Service;
-import ifpr.paranavai.game.service.LevelService;
-import ifpr.paranavai.game.service.ShootService;
+import ifpr.paranavai.game.service.*;
 
 import javax.persistence.*;
 import javax.swing.*;
@@ -31,7 +31,7 @@ public class Level extends JPanel implements ActionListener, KeyListener {
     @Transient
     private Image background;
 
-    @OneToOne(cascade=CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_graphic_element")
     private Player player;
 
@@ -39,7 +39,8 @@ public class Level extends JPanel implements ActionListener, KeyListener {
     private Timer timer;
     //@OneToMany(mappedBy = "level")
     @Transient
-    protected List<ImageIcon> lifes = new ArrayList<>(4);
+    @OneToMany(mappedBy = "player")
+    protected List<ImageIcon> lifes = new ArrayList<>(3);
     @Column(name = "in_game")
     protected boolean inGame;
     @Transient
@@ -62,9 +63,9 @@ public class Level extends JPanel implements ActionListener, KeyListener {
     public final int playState = 1;
 
     public final int pauseState = 2;
+    public final int loadState = 3;
     @Transient
     Enemy1 enemy;
-
 
 
     public Level() {
@@ -90,9 +91,9 @@ public class Level extends JPanel implements ActionListener, KeyListener {
         timer.start();
 
 
-
         //inGame = true;
     }
+
     public void setupGame() {
         initializeEnemies();
         initializeMiniMeteors();
@@ -104,30 +105,31 @@ public class Level extends JPanel implements ActionListener, KeyListener {
 
 
     public void initializeEnemies() {
-        int coord[] = new int [4]; //colocando 4 inimigos de uma vez
+        int coord[] = new int[4]; //colocando 4 inimigos de uma vez
         Rectangle rec;
         boolean overlap;
 
         for (int i = 0; i < coord.length; i++) {
             overlap = false;
-            int x = (int)(Math.random() * 1280); //
-            int y = (int)(Math.random() * -200 - 150); // altura
+            int x = (int) (Math.random() * 1280); //
+            int y = (int) (Math.random() * -200 - 150); // altura
             rec = new Rectangle(x, y, 50, 50);
 
             //método para os inimigos nao nascerem um em cima do outro
-            for(int j = 0;j<enemy1.size();j++) {
-                if(enemy1.get(j).getBounds().intersects(rec)) {
+            for (int j = 0; j < enemy1.size(); j++) {
+                if (enemy1.get(j).getBounds().intersects(rec)) {
                     System.out.println("BOUNDS" + overlap);
                     overlap = true;
                     System.out.println("BOUNDS" + overlap);
                 }
             }
-            if(!overlap) {
+            if (!overlap) {
                 enemy1.add(new Enemy1(x, y));
             }
 
         }
     }
+
     public void initializeMiniMeteors() {
         int coord[] = new int[2];
         Rectangle recMeteor;
@@ -138,6 +140,7 @@ public class Level extends JPanel implements ActionListener, KeyListener {
             recMeteor = new Rectangle(x, y, 50, 50);
         }
     }
+
     public void initializeStars() {
         int coord[] = new int[50];
         for (int i = 0; i < coord.length; i++) {
@@ -146,6 +149,7 @@ public class Level extends JPanel implements ActionListener, KeyListener {
             stars.add(new Stars(x, y));
         }
     }
+
     public void drawningScore(Graphics2D g) {
         String textScore = "SCORE: " + player.getScore();
         g.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 22));
@@ -158,7 +162,7 @@ public class Level extends JPanel implements ActionListener, KeyListener {
         if (gameState == menuState) {
             menuStyle.draw(graphics);
 
-        }else {
+        } else {
             if (inGame == true) {
                 graphics.drawImage(background, 0, 0, null);
                 //setupGame();
@@ -173,7 +177,7 @@ public class Level extends JPanel implements ActionListener, KeyListener {
 
                 graphics.drawImage(player.getImage(), player.getPositionX(), player.getPositionY(), this);
 
-                for(int i = 0; i < lifes.size(); i++) {
+                for (int i = 0; i < lifes.size(); i++) {
                     graphics.drawImage(lifes.get(i).getImage(), 50 * i, 0, null);
                 }
 
@@ -203,17 +207,14 @@ public class Level extends JPanel implements ActionListener, KeyListener {
                     star.load();
                     graphics.drawImage(star.getImage(), star.getPositionX(), star.getPositionY(), this);
                 }
-            }
-
-
-            else {
+            } else {
                 ImageIcon gameOver = new ImageIcon(getClass().getResource("/gameover.png"));
                 graphics.drawImage(gameOver.getImage(), 0, 0, null);
             }
 
             g.dispose();
         }
-        }
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -221,7 +222,7 @@ public class Level extends JPanel implements ActionListener, KeyListener {
 
         for (int z = 0; z < miniMeteors.size(); z++) {
             MiniMeteor on = miniMeteors.get(z);
-            if(on.isVisible()) {
+            if (on.isVisible()) {
                 on.update();
             } else {
                 miniMeteors.remove(z);
@@ -230,7 +231,7 @@ public class Level extends JPanel implements ActionListener, KeyListener {
 
         for (int s = 0; s < stars.size(); s++) {
             Stars on = stars.get(s);
-            if(on.isVisible()) {
+            if (on.isVisible()) {
                 on.update();
             } else {
                 stars.remove(s);
@@ -244,8 +245,7 @@ public class Level extends JPanel implements ActionListener, KeyListener {
             if (superShoots.get(j).getPositionY() < 0) {
                 superShoots.remove(j);
                 System.out.println("tiro removido");
-            }
-            else {
+            } else {
                 superShoots.get(j).update();
             }
 
@@ -257,8 +257,7 @@ public class Level extends JPanel implements ActionListener, KeyListener {
             if (shoots.get(i).getPositionY() < 0) {
                 shoots.remove(i);
                 System.out.println("tiro removido");
-            }
-            else {
+            } else {
                 shoots.get(i).update();
             }
 
@@ -268,8 +267,7 @@ public class Level extends JPanel implements ActionListener, KeyListener {
             if (enemy1.get(i).getPositionY() > 720) {
                 enemy1.remove(i);
                 System.out.println("inimigo removido");
-            }
-            else {
+            } else {
                 enemy1.get(i).update();
             }
         }
@@ -278,8 +276,7 @@ public class Level extends JPanel implements ActionListener, KeyListener {
             if (miniMeteors.get(i).getPositionY() > 720) {
                 miniMeteors.remove(i);
                 System.out.println("mini meteoro removido");
-            }
-            else {
+            } else {
                 miniMeteors.get(i).update();
             }
         }
@@ -288,8 +285,7 @@ public class Level extends JPanel implements ActionListener, KeyListener {
             if (stars.get(i).getPositionY() > 720) {
                 stars.remove(i);
                 System.out.println("esterela removida");
-            }
-            else {
+            } else {
                 stars.get(i).update();
             }
         }
@@ -298,7 +294,7 @@ public class Level extends JPanel implements ActionListener, KeyListener {
             Enemy1 in = enemy1.get(o);
             if (in.isVisible()) {
                 in.update();
-            }else {
+            } else {
                 enemy1.remove(o);
                 System.out.println("inimigo morto");
 
@@ -404,22 +400,51 @@ public class Level extends JPanel implements ActionListener, KeyListener {
                     superShoots.remove(j);
                 }
 
-                }
             }
         }
+    }
 
+    public void saveGame() {
+        for (Enemy1 enemy11 : enemy1) {
+            Enemy1Service.insert(enemy11);
+        }
+        for (MiniMeteor miniMeteor : miniMeteors) {
+            MiniMeteorService.insert(miniMeteor);
+        }
+        for (Shoot shoot : player.getShoots()) {
+            ShootService.insert(shoot);
+        }
+        for (Stars stars1 : stars) {
+            StarsService.insert(stars1);
+        }
+        for (SuperShoot superShoot : player.getSuperShoots()) {
+            SuperShootService.insert(superShoot);
+        }
+        PlayerService.insert(player);
+    }
+
+    public void loadGame() {
+        DaoPlayer daoPlayer = new ImplementDaoPlayer();
+        List<Player> loadPlayer = daoPlayer.searchPlayer();
+
+        Player player1 = loadPlayer.get(loadPlayer.size() - 1);
+        setPlayer(player1);
+        getPlayer().load();
+
+    }
 
     @Transient
     ActionListener newActionLister = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            if(inGame == true) {
+            if (inGame == true) {
                 initializeEnemies();
                 initializeMiniMeteors();
                 initializeStars();
             }
         }
     };
+
     @Override
     public void keyTyped(KeyEvent e) {
         // TODO Auto-generated method stub
@@ -432,19 +457,20 @@ public class Level extends JPanel implements ActionListener, KeyListener {
 
         int code = e.getKeyCode();
         if (code == KeyEvent.VK_ESCAPE) {
+            saveGame();
             System.exit(0);
 
 
         }
-        if(gameState == menuState) {
+        if (gameState == menuState) {
             if (code == KeyEvent.VK_UP || code == KeyEvent.VK_W) {
-                menuStyle.commandNum --;
+                menuStyle.commandNum--;
                 if (menuStyle.commandNum < 0) {
                     menuStyle.commandNum = 2;
                 }
             }
             if (code == KeyEvent.VK_DOWN || code == KeyEvent.VK_S) {
-                menuStyle.commandNum ++;
+                menuStyle.commandNum++;
                 if (menuStyle.commandNum > 2) {
                     menuStyle.commandNum = 0;
                 }
@@ -455,7 +481,14 @@ public class Level extends JPanel implements ActionListener, KeyListener {
                     inGame = true;
                     setupGame();
                 }
-                if(menuStyle.commandNum == 2) {
+                if (menuStyle.commandNum == 1) {
+                    loadGame();
+                    inGame = true;
+                    setupGame();
+                    gameState = playState;
+                    System.out.println("ai");
+                }
+                if (menuStyle.commandNum == 2) {
                     System.exit(0);
                 }
             }
@@ -472,5 +505,13 @@ public class Level extends JPanel implements ActionListener, KeyListener {
             player.superShoot();
         }
         player.stop(e);
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 }

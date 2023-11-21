@@ -6,38 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="a0ecce16-1c63-49fe-8f32-d46116e134e9" name="Changes" comment="Criando conexão com o banco de dados com Hibernate e Maven">
       <changelist_data name="Rubens Matheus" email="112494717+rubensmatheus-me@users.noreply.github.com" />
-      <change afterPath="$PROJECT_DIR$/JogoSpaceInvaders.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/SaveGame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/DaoEnemy1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/DaoLevel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/DaoMiniMeteor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/DaoShoot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/DaoStars.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/DaoSuperShoot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/ImplementDaoEnemy1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/ImplementDaoLevel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/ImplementDaoMiniMeteor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/ImplementDaoShoot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/ImplementDaoStars.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/ImplementDaoSuperShoot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/service/Enemy1Service.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/service/LevelService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/service/MiniMeteorService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/service/ShootService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/service/StarsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/service/SuperShootService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/SaveGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/SaveGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/ImplementDaoEnemy1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/ImplementDaoEnemy1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/game/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/view/MenuStyle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/enemies/Enemy1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/enemies/Enemy1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/enemies/MiniMeteor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/enemies/MiniMeteor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/levels/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/view/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/scenario/Stars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/scenario/Stars.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/shoots/Shoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/shoots/Shoot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/shoots/SuperShoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/shoots/SuperShoot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/service/testService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/service/testService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/view/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/view/Level.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
