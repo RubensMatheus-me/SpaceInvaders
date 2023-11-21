@@ -1,7 +1,7 @@
 package ifpr.paranavai.game.models.enemies;
 
 import ifpr.paranavai.game.models.GraphicElement;
-import ifpr.paranavai.game.models.levels.Level;
+import ifpr.paranavai.game.view.Level;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -22,6 +22,10 @@ public class MiniMeteor extends GraphicElement {
         this.positionY = positionY;
         isVisible = true;
     }
+
+    public MiniMeteor() {
+    }
+
     @Override
     public void load() {
         ImageIcon reference = new ImageIcon(getClass().getResource("/miniMeteor.png"));

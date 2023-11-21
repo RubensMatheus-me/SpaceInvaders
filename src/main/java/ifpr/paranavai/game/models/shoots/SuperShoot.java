@@ -22,6 +22,10 @@ public class SuperShoot extends GraphicElement {
         this.direction = direction;
         isVisible = true;
     }
+
+    public SuperShoot() {
+    }
+
     @Override
     public void load() {
         ImageIcon reference = new ImageIcon(getClass().getResource("/superShoot.png"));

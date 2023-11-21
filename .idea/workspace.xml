@@ -6,19 +6,38 @@
   <component name="ChangeListManager">
     <list default="true" id="a0ecce16-1c63-49fe-8f32-d46116e134e9" name="Changes" comment="Criando conexão com o banco de dados com Hibernate e Maven">
       <changelist_data name="Rubens Matheus" email="112494717+rubensmatheus-me@users.noreply.github.com" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/DaoPlayer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/ImplementDaoPlayer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/service/PlayerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/service/testService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JogoSpaceInvaders.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/SaveGame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/DaoEnemy1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/DaoLevel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/DaoMiniMeteor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/DaoShoot.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/DaoStars.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/DaoSuperShoot.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/ImplementDaoEnemy1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/ImplementDaoLevel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/ImplementDaoMiniMeteor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/ImplementDaoShoot.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/ImplementDaoStars.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/ImplementDaoSuperShoot.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/service/Enemy1Service.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/service/LevelService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/service/MiniMeteorService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/service/ShootService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/service/StarsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/service/SuperShootService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/game/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/view/MenuStyle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/enemies/Enemy1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/enemies/Enemy1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/enemies/MiniMeteor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/enemies/MiniMeteor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/levels/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/levels/Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/levels/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/view/Level.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/scenario/Stars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/scenario/Stars.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/shoots/Shoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/shoots/Shoot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/shoots/SuperShoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/shoots/SuperShoot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,29 +88,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Aluno/IdeaProjects/SpaceInvaders/src/main/resources",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/mateu/OneDrive/Área de Trabalho/coding/SpaceInvaders/src/main/java/ifpr/paranavai/game/dao&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.importing&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mateu\OneDrive\Área de Trabalho\coding\SpaceInvaders\src\main\java\ifpr\paranavai\game\dao" />
       <recent name="C:\Users\Aluno\IdeaProjects\SpaceInvaders\src\main\resources" />
       <recent name="C:\Users\mateu\OneDrive\Área de Trabalho\coding\SpaceInvaders\src\resources" />
     </key>
@@ -107,7 +127,7 @@
       <module name="JogoSpaceInvaders" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ifpr.paranavai.game.game.*" />
+          <option name="PATTERN" value="ifpr.paranavai.game.view.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -154,6 +174,8 @@
       <workItem from="1693761876087" duration="30000" />
       <workItem from="1693761953327" duration="8387000" />
       <workItem from="1693841464491" duration="1751000" />
+      <workItem from="1700580880364" duration="2720000" />
+      <workItem from="1700601849412" duration="2907000" />
     </task>
     <task id="LOCAL-00001" summary="spid-002">
       <option name="closed" value="true" />

@@ -1,6 +1,6 @@
 package ifpr.paranavai.game.models;
 
-import ifpr.paranavai.game.models.levels.Level;
+import ifpr.paranavai.game.view.Level;
 import ifpr.paranavai.game.models.shoots.Shoot;
 import ifpr.paranavai.game.models.shoots.SuperShoot;
 
@@ -13,8 +13,8 @@ import java.util.List;
 @Entity
 @Table(name = "tb_player")
 public class Player extends GraphicElement {
-    @OneToOne
 
+    @OneToOne(mappedBy = "player")
     private Level level;
 
     //@GeneratedValue(strategy = GenerationType.AUTO)

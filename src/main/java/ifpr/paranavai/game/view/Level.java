@@ -1,12 +1,15 @@
-package ifpr.paranavai.game.models.levels;
+package ifpr.paranavai.game.view;
 
-import ifpr.paranavai.game.game.UI;
+import ifpr.paranavai.game.SaveGame;
 import ifpr.paranavai.game.models.Player;
 import ifpr.paranavai.game.models.enemies.Enemy1;
 import ifpr.paranavai.game.models.enemies.MiniMeteor;
 import ifpr.paranavai.game.models.scenario.Stars;
 import ifpr.paranavai.game.models.shoots.Shoot;
 import ifpr.paranavai.game.models.shoots.SuperShoot;
+import ifpr.paranavai.game.service.Enemy1Service;
+import ifpr.paranavai.game.service.LevelService;
+import ifpr.paranavai.game.service.ShootService;
 
 import javax.persistence.*;
 import javax.swing.*;
@@ -17,7 +20,10 @@ import java.util.List;
 @Entity
 @Table(name = "tb_level")
 public class Level extends JPanel implements ActionListener, KeyListener {
-    UI ui;
+    @Transient
+    SaveGame sg;
+    @Transient
+    MenuStyle menuStyle;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 
@@ -25,11 +31,10 @@ public class Level extends JPanel implements ActionListener, KeyListener {
     @Transient
     private Image background;
 
-    @OneToOne
-    @JoinColumn(name = "level")
-
-    @Column(name = "player")
+    @OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name = "id_graphic_element")
     private Player player;
+
     @Transient
     private Timer timer;
     //@OneToMany(mappedBy = "level")
@@ -57,6 +62,8 @@ public class Level extends JPanel implements ActionListener, KeyListener {
     public final int playState = 1;
 
     public final int pauseState = 2;
+    @Transient
+    Enemy1 enemy;
 
 
 
@@ -65,7 +72,7 @@ public class Level extends JPanel implements ActionListener, KeyListener {
         gameState = menuState;
         setFocusable(true);
         setDoubleBuffered(true);
-        this.ui = new UI(this);
+        this.menuStyle = new MenuStyle(this);
 
         //adicionando a vida ao arraylist
         lifes.add(new ImageIcon(getClass().getResource("/vida.png")));
@@ -149,7 +156,7 @@ public class Level extends JPanel implements ActionListener, KeyListener {
     public void paint(Graphics g) {
         Graphics2D graphics = (Graphics2D) g;
         if (gameState == menuState) {
-            ui.draw(graphics);
+            menuStyle.draw(graphics);
 
         }else {
             if (inGame == true) {
@@ -406,10 +413,11 @@ public class Level extends JPanel implements ActionListener, KeyListener {
     ActionListener newActionLister = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            initializeEnemies();
-            initializeMiniMeteors();
-            initializeStars();
-
+            if(inGame == true) {
+                initializeEnemies();
+                initializeMiniMeteors();
+                initializeStars();
+            }
         }
     };
     @Override
@@ -422,28 +430,32 @@ public class Level extends JPanel implements ActionListener, KeyListener {
     public void keyPressed(KeyEvent e) {
         player.move(e);
 
-
         int code = e.getKeyCode();
+        if (code == KeyEvent.VK_ESCAPE) {
+            System.exit(0);
+
+
+        }
         if(gameState == menuState) {
             if (code == KeyEvent.VK_UP || code == KeyEvent.VK_W) {
-                ui.commandNum --;
-                if (ui.commandNum < 0) {
-                    ui.commandNum = 2;
+                menuStyle.commandNum --;
+                if (menuStyle.commandNum < 0) {
+                    menuStyle.commandNum = 2;
                 }
             }
             if (code == KeyEvent.VK_DOWN || code == KeyEvent.VK_S) {
-                ui.commandNum ++;
-                if (ui.commandNum > 2) {
-                    ui.commandNum = 0;
+                menuStyle.commandNum ++;
+                if (menuStyle.commandNum > 2) {
+                    menuStyle.commandNum = 0;
                 }
             }
             if (code == KeyEvent.VK_ENTER) {
-                if (ui.commandNum == 0) {
+                if (menuStyle.commandNum == 0) {
                     gameState = playState;
                     inGame = true;
                     setupGame();
                 }
-                if(ui.commandNum == 2) {
+                if(menuStyle.commandNum == 2) {
                     System.exit(0);
                 }
             }

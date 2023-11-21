@@ -1,7 +1,7 @@
 package ifpr.paranavai.game.models.scenario;
 
 import ifpr.paranavai.game.models.GraphicElement;
-import ifpr.paranavai.game.models.levels.Level;
+import ifpr.paranavai.game.view.Level;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -23,7 +23,10 @@ public class Stars extends GraphicElement {
             this.positionY = positionY;
             isVisible = true;
         }
-        @Override
+
+    public Stars() {}
+
+    @Override
         public void load() {
             ImageIcon reference = new ImageIcon(getClass().getResource("/star.png"));
             image = reference.getImage();

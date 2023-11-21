@@ -1,17 +1,15 @@
-package ifpr.paranavai.game.game;
+package ifpr.paranavai.game.view;
 
-import ifpr.paranavai.game.models.levels.Level;
+import ifpr.paranavai.game.game.Game;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 import java.io.IOException;
 import java.io.InputStream;
 
 
-public class UI{
+public class MenuStyle {
     Level lv;
     Graphics2D g2;
     Font maruMonica, purisaB;
@@ -20,7 +18,7 @@ public class UI{
     ImageIcon reference;
 
 
-    public UI (Level lv) {
+    public MenuStyle(Level lv) {
 
         reference = new ImageIcon(getClass().getResource("/Mochtroid.png"));
         this.lv = lv;

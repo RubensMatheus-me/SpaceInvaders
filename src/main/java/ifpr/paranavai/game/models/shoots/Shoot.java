@@ -21,6 +21,9 @@ public class Shoot extends GraphicElement {
         isVisible = true;
     }
 
+    public Shoot() {
+    }
+
     public void load() {
         ImageIcon reference = new ImageIcon(getClass().getResource("/bullet.png"));
         image = reference.getImage();
