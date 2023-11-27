@@ -162,7 +162,7 @@ public class Level extends JPanel implements ActionListener, KeyListener {
         g.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 35));
         g.setColor(new java.awt.Color(255, 255, 255));
         g.drawString(textPause, 450, 300); // x, y
-        g.drawString(textSave, 450, 350); // x, y
+        g.drawString(textSave, 450, 350);
 
     }
 
