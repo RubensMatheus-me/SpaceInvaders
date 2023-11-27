@@ -2,7 +2,9 @@ package ifpr.paranavai.game.dao;
 
 import Connection.HibernateUtil;
 import ifpr.paranavai.game.models.enemies.MiniMeteor;
+import ifpr.paranavai.game.models.shoots.Shoot;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import java.util.List;
@@ -55,6 +57,15 @@ public class ImplementDaoMiniMeteor implements DaoMiniMeteor {
             session.beginTransaction();
             session.remove(miniMeteor);
             session.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void saveOrUpdateMiniMeteor(MiniMeteor miniMeteor) {
+        try (Session session = HibernateUtil.getSession()) {
+            Transaction transaction = session.beginTransaction();
+            session.saveOrUpdate(miniMeteor);
+            transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
         }

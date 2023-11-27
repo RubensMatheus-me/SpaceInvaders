@@ -6,6 +6,7 @@ import ifpr.paranavai.game.dao.ImplementDaoPlayer;
 import ifpr.paranavai.game.dao.ImplementDaoShoot;
 import ifpr.paranavai.game.models.Player;
 import ifpr.paranavai.game.models.shoots.Shoot;
+import ifpr.paranavai.game.models.shoots.SuperShoot;
 
 import java.util.List;
 
@@ -26,6 +27,9 @@ public class ShootService {
     }
     public static void delete(Shoot shoot) {
         dao.delete(shoot);
+    }
+    public static void saveOrUpdateShoot(Shoot shoot) {
+        dao.saveOrUpdateShoot(shoot);
     }
 }
 

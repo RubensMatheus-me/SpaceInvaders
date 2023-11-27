@@ -56,4 +56,5 @@ public class MiniMeteor extends GraphicElement {
     public static void setSPEED(int SPEED) {
         MiniMeteor.SPEED = SPEED;
     }
+
 }

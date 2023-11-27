@@ -6,6 +6,7 @@ import ifpr.paranavai.game.dao.ImplementDaoMiniMeteor;
 import ifpr.paranavai.game.dao.ImplementDaoPlayer;
 import ifpr.paranavai.game.models.Player;
 import ifpr.paranavai.game.models.enemies.MiniMeteor;
+import ifpr.paranavai.game.models.shoots.SuperShoot;
 
 import java.util.List;
 
@@ -26,6 +27,9 @@ public class MiniMeteorService {
     }
     public static void delete(MiniMeteor miniMeteor) {
         dao.delete(miniMeteor);
+    }
+    public static void saveOrUpdateMiniMeteor(MiniMeteor miniMeteor) {
+        dao.saveOrUpdateMiniMeteor(miniMeteor);
     }
 
 }

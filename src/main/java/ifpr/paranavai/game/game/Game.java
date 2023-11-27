@@ -4,7 +4,9 @@ import Connection.HibernateUtil;
 import ifpr.paranavai.game.models.Player;
 import ifpr.paranavai.game.service.PlayerService;
 import ifpr.paranavai.game.view.Level;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,6 +16,7 @@ public class Game extends JFrame {
 
     private static int WIDTH = 1280;
     private static int HEIGHT = 720;
+    private static Transaction transaction;
     public Game() {
         setBackground(Color.BLACK);
         add(new Level());
@@ -28,6 +31,21 @@ public class Game extends JFrame {
 
     public static void main (String[] args) {
         Session session = HibernateUtil.getSession();
+        try {
+            transaction = session.beginTransaction();
+
+            // Perform operations with Player entity and its collections
+            // ...
+
+            transaction.commit();
+        } catch (HibernateException e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
         new Game();
     }
 

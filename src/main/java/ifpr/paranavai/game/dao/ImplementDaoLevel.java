@@ -1,8 +1,10 @@
 package ifpr.paranavai.game.dao;
 
 import Connection.HibernateUtil;
+import ifpr.paranavai.game.models.shoots.Shoot;
 import ifpr.paranavai.game.view.Level;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import java.util.List;
@@ -50,6 +52,15 @@ public class ImplementDaoLevel implements DaoLevel{
             session.beginTransaction();
             session.remove(level);
             session.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void saveOrUpdateLevel(Level level) {
+        try (Session session = HibernateUtil.getSession()) {
+            Transaction transaction = session.beginTransaction();
+            session.saveOrUpdate(level);
+            transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
         }

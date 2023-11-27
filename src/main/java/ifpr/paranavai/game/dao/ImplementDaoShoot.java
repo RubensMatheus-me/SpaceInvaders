@@ -4,6 +4,7 @@ import Connection.HibernateUtil;
 import ifpr.paranavai.game.models.Player;
 import ifpr.paranavai.game.models.shoots.Shoot;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import java.util.List;
@@ -51,6 +52,15 @@ public class ImplementDaoShoot implements DaoShoot{
             session.beginTransaction();
             session.remove(shoot);
             session.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void saveOrUpdateShoot(Shoot shoot) {
+        try (Session session = HibernateUtil.getSession()) {
+            Transaction transaction = session.beginTransaction();
+            session.saveOrUpdate(shoot);
+            transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
         }

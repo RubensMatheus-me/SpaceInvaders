@@ -4,6 +4,7 @@ import Connection.HibernateUtil;
 import ifpr.paranavai.game.models.shoots.Shoot;
 import ifpr.paranavai.game.models.shoots.SuperShoot;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import java.util.List;
@@ -51,6 +52,15 @@ public class ImplementDaoSuperShoot implements DaoSuperShoot{
             session.beginTransaction();
             session.remove(superShoot);
             session.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void saveOrUpdateSuperShoot(SuperShoot superShoot) {
+        try (Session session = HibernateUtil.getSession()) {
+            Transaction transaction = session.beginTransaction();
+            session.saveOrUpdate(superShoot);
+            transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -2,7 +2,9 @@ package ifpr.paranavai.game.dao;
 
 import Connection.HibernateUtil;
 import ifpr.paranavai.game.models.Player;
+import ifpr.paranavai.game.models.shoots.Shoot;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import java.util.List;
@@ -50,6 +52,15 @@ public class ImplementDaoPlayer implements DaoPlayer {
             session.beginTransaction();
             session.remove(player);
             session.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void saveOrUpdatePlayer(Player player) {
+        try (Session session = HibernateUtil.getSession()) {
+            Transaction transaction = session.beginTransaction();
+            session.saveOrUpdate(player);
+            transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
         }

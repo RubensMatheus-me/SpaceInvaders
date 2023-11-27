@@ -3,6 +3,7 @@ package ifpr.paranavai.game.service;
 import ifpr.paranavai.game.dao.ImplementDaoPlayer;
 import ifpr.paranavai.game.dao.DaoPlayer;
 import ifpr.paranavai.game.models.Player;
+import ifpr.paranavai.game.models.shoots.SuperShoot;
 
 import java.util.List;
 public class PlayerService {
@@ -22,5 +23,8 @@ public class PlayerService {
     }
     public static void delete(Player player) {
         dao.delete(player);
+    }
+    public static void saveOrUpdatePlayer(Player player) {
+        dao.saveOrUpdatePlayer(player);
     }
 }

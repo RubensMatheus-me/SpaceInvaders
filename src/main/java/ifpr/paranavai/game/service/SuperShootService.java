@@ -27,5 +27,8 @@ public class SuperShootService {
     public static void delete(SuperShoot superShoot) {
         dao.delete(superShoot);
     }
+    public static void saveOrUpdateSuperShoot(SuperShoot superShoot) {
+        dao.saveOrUpdateSuperShoot(superShoot);
+    }
 
 }

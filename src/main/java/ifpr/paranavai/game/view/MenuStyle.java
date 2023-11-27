@@ -5,8 +5,10 @@ import ifpr.paranavai.game.game.Game;
 import javax.swing.*;
 import java.awt.*;
 
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.io.InputStream;
+import java.security.Key;
 
 
 public class MenuStyle {
@@ -43,9 +45,23 @@ public class MenuStyle {
         g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         g2.setColor(Color.white);
 
+        if (lv.gameState == lv.playState) {
+            //
+        }
+        if (lv.gameState == lv.pauseState) {
+            drawPauseScreen();
+        }
+
         if (lv.gameState == lv.menuState) {
             drawMenuScreen();
         }
+    }
+    public void drawPauseScreen() {
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN,80F));
+        String text = "PAUSED";
+
+        int x = getXforCenteredText(text);
+        int y = Game.getHEIGHT() / 2;
     }
     public void drawMenuScreen() {
         if (lv.gameState == lv.menuState) {
@@ -106,5 +122,65 @@ public class MenuStyle {
         int x = Game.getWIDTH() / 2 - length / 2;
         return x;
     }
+    public void menuLogic(KeyEvent key) {
+        int code = key.getKeyCode();
+        if (lv.gameState == lv.menuState) {
+            if (code == KeyEvent.VK_UP || code == KeyEvent.VK_W) {
+                commandNum--;
+                if (commandNum < 0) {
+                    commandNum = 2;
+                }
+            }
+            if (code == KeyEvent.VK_DOWN || code == KeyEvent.VK_S) {
+                commandNum++;
+                if (commandNum > 2) {
+                    commandNum = 0;
+                }
+            }
+            if (code == KeyEvent.VK_ENTER) {
+                if (commandNum == 0) {
+                    lv.gameState = lv.playState;
+                    lv.setInGame(true);
+                    lv.setupGame();
+                }
+                if (commandNum == 1) {
+                    lv.loadGame();
+                    lv.setInGame(true);
+                    lv.setupGame();
+                    lv.gameState = lv.playState;
+                    System.out.println("ai");
+                }
+                if (commandNum == 2) {
+                    System.exit(0);
+                }
+                if (code == KeyEvent.VK_P) {
+                    if (lv.gameState == lv.playState) {
+                        lv.gameState = lv.pauseState;
+                        System.out.println("333333333333");
+                    } else if (lv.gameState == lv.pauseState) {
+                        lv.gameState = lv.playState;
+                        System.out.println("333333333333");
+                    }
 
+                }
+
+            }
+        }
+    }
+    public void saveLogic(KeyEvent key) {
+        int code = key.getKeyCode();
+        if (lv.gameState == lv.pauseState) {
+            if (code == KeyEvent.VK_ESCAPE) {
+                lv.gameState = lv.menuState;
+                lv.setInGame(false);
+                new Game();
+
+                //new Level();
+            }
+            if (code == KeyEvent.VK_F5) {
+                lv.deleteGame();
+                lv.saveGame();
+            }
+        }
+    }
 }

@@ -6,6 +6,7 @@ import ifpr.paranavai.game.dao.ImplementDaoEnemy1;
 import ifpr.paranavai.game.dao.ImplementDaoPlayer;
 import ifpr.paranavai.game.models.Player;
 import ifpr.paranavai.game.models.enemies.Enemy1;
+import ifpr.paranavai.game.models.shoots.SuperShoot;
 
 import java.util.List;
 
@@ -26,6 +27,12 @@ public class Enemy1Service {
     }
     public static void delete(Enemy1 enemy1) {
         dao.delete(enemy1);
+    }
+    public static void saveOrUpdateEnemy1(Enemy1 enemy1) {
+        dao.saveOrUpdateEnemy1(enemy1);
+    }
+    public static List<Enemy1> getAllEnemiesByPlayerId(int playerId) {
+        return dao.getAllEnemiesByPlayerId(playerId);
     }
 }
 

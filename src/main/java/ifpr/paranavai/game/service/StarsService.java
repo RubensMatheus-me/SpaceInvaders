@@ -6,6 +6,7 @@ import ifpr.paranavai.game.dao.ImplementDaoPlayer;
 import ifpr.paranavai.game.dao.ImplementDaoStars;
 import ifpr.paranavai.game.models.Player;
 import ifpr.paranavai.game.models.scenario.Stars;
+import ifpr.paranavai.game.models.shoots.SuperShoot;
 
 import java.util.List;
 
@@ -26,5 +27,8 @@ public class StarsService {
     }
     public static void delete(Stars stars) {
         dao.delete(stars);
+    }
+    public static void saveOrUpdateStars(Stars stars) {
+        dao.saveOrUpdateStars(stars);
     }
 }

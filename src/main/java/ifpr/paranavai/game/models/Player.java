@@ -1,5 +1,6 @@
 package ifpr.paranavai.game.models;
 
+import ifpr.paranavai.game.KeyHandler;
 import ifpr.paranavai.game.view.Level;
 import ifpr.paranavai.game.models.shoots.Shoot;
 import ifpr.paranavai.game.models.shoots.SuperShoot;
@@ -13,7 +14,7 @@ import java.util.List;
 @Entity
 @Table(name = "tb_player")
 public class Player extends GraphicElement {
-
+    Integer Id;
     @OneToOne(mappedBy = "player")
     private Level level;
 
@@ -23,9 +24,11 @@ public class Player extends GraphicElement {
     //private Integer playerId;
 
     @OneToMany(mappedBy = "player")//foreign key
+    @Transient
     private List<Shoot> shoots;
     //@OneToMany(cascade = CascadeType.ALL, mappedBy = "fk_super_shoot") //foreign key
     @OneToMany(mappedBy = "player")
+    @Transient
     private List<SuperShoot> superShoots;
     @Column(name = "score")
     private int score;
@@ -62,8 +65,6 @@ public class Player extends GraphicElement {
         collisionBorder();
     }
 
-
-
     public void collisionBorder() {
         if (positionX < 0) {
               setPositionX(0);
@@ -98,7 +99,6 @@ public class Player extends GraphicElement {
 
         } else if (code == KeyEvent.VK_RIGHT || code == KeyEvent.VK_D) {
             this.deslocationX = DESLOCATION;
-
         }
     }
 

@@ -4,6 +4,7 @@ import Connection.HibernateUtil;
 import ifpr.paranavai.game.models.scenario.Stars;
 import ifpr.paranavai.game.models.shoots.Shoot;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import java.util.List;
@@ -51,6 +52,15 @@ public class ImplementDaoStars implements DaoStars{
             session.beginTransaction();
             session.remove(stars);
             session.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void saveOrUpdateStars(Stars stars) {
+        try (Session session = HibernateUtil.getSession()) {
+            Transaction transaction = session.beginTransaction();
+            session.saveOrUpdate(stars);
+            transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
         }

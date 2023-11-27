@@ -11,4 +11,5 @@ public interface DaoSuperShoot {
     public void refresh (SuperShoot superShoot);
     public void delete (SuperShoot superShoot);
     public void insert (SuperShoot superShoot);
+    public void saveOrUpdateSuperShoot (SuperShoot superShoot);
 }

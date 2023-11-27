@@ -1,6 +1,8 @@
 package ifpr.paranavai.game.dao;
 
+import ifpr.paranavai.game.models.Player;
 import ifpr.paranavai.game.models.enemies.Enemy1;
+import ifpr.paranavai.game.models.shoots.SuperShoot;
 
 import java.util.List;
 
@@ -10,4 +12,6 @@ public interface DaoEnemy1 {
     public void refresh (Enemy1 enemy1);
     public void delete (Enemy1 enemy1);
     public void insert (Enemy1 enemy1);
+    public void saveOrUpdateEnemy1 (Enemy1 enemy1);
+    public List<Enemy1> getAllEnemiesByPlayerId(int playerId);
 }

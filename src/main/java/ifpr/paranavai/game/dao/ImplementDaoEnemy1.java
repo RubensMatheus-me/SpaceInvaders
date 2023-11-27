@@ -2,15 +2,18 @@ package ifpr.paranavai.game.dao;
 
 import Connection.HibernateUtil;
 
+import ifpr.paranavai.game.models.Player;
 import ifpr.paranavai.game.models.enemies.Enemy1;
+import ifpr.paranavai.game.models.shoots.Shoot;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
-
+import java.util.Collections;
 import java.util.List;
 
 public class ImplementDaoEnemy1 implements DaoEnemy1{
     private Session session;
-
+    private Player player;
     public ImplementDaoEnemy1() {
         this.session = HibernateUtil.getSession();
     }
@@ -56,5 +59,26 @@ public class ImplementDaoEnemy1 implements DaoEnemy1{
             e.printStackTrace();
         }
     }
+    public void saveOrUpdateEnemy1(Enemy1 enemy1) {
+        try (Session session = HibernateUtil.getSession()) {
+            Transaction transaction = session.beginTransaction();
+            session.saveOrUpdate(enemy1);
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public List<Enemy1> getAllEnemiesByPlayerId(int playerId) {
+        try (Session session = HibernateUtil.getSession()) {
+            String hql = "FROM Enemy1 WHERE Player.idGraphicElement = :playerId";
+            Query<Enemy1> query = session.createQuery(hql, Enemy1.class);
+            query.setParameter("playerId", playerId);
+            List<Enemy1> enemies = query.list();
 
+            return enemies;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Collections.emptyList();
+        }
+    }
 }

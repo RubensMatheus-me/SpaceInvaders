@@ -2,6 +2,7 @@ package ifpr.paranavai.game.service;
 
 import ifpr.paranavai.game.dao.DaoLevel;
 import ifpr.paranavai.game.dao.ImplementDaoLevel;
+import ifpr.paranavai.game.models.shoots.SuperShoot;
 import ifpr.paranavai.game.view.Level;
 
 import java.util.List;
@@ -23,6 +24,9 @@ public class LevelService {
     }
     public static void delete(Level level) {
         dao.delete(level);
+    }
+    public static void saveOrUpdateLevel(Level level) {
+        dao.saveOrUpdateLevel(level);
     }
 }
 
