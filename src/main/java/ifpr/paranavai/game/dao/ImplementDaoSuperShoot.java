@@ -56,10 +56,10 @@ public class ImplementDaoSuperShoot implements DaoSuperShoot{
             e.printStackTrace();
         }
     }
-    public void saveOrUpdateSuperShoot(SuperShoot superShoot) {
+    public void mergeSuperShoot(SuperShoot superShoot) {
         try (Session session = HibernateUtil.getSession()) {
             Transaction transaction = session.beginTransaction();
-            session.saveOrUpdate(superShoot);
+            session.merge(superShoot);
             transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();

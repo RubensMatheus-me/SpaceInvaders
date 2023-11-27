@@ -4,26 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0ecce16-1c63-49fe-8f32-d46116e134e9" name="Changes" comment="Criando conexão com o banco de dados com Hibernate e Maven">
-      <changelist_data name="Rubens Matheus" email="112494717+rubensmatheus-me@users.noreply.github.com" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a0ecce16-1c63-49fe-8f32-d46116e134e9" name="Changes" comment="salvando os tiros e supertiros">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/KeyHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/DaoEnemy1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/DaoEnemy1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/DaoMiniMeteor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/DaoMiniMeteor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/DaoShoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/DaoShoot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/DaoStars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/DaoStars.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/ImplementDaoEnemy1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/ImplementDaoEnemy1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/ImplementDaoMiniMeteor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/ImplementDaoMiniMeteor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/ImplementDaoShoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/ImplementDaoShoot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/ImplementDaoStars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/ImplementDaoStars.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/models/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/service/Enemy1Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/service/Enemy1Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/service/MiniMeteorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/service/MiniMeteorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/service/ShootService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/service/ShootService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/service/StarsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/service/StarsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/DaoSuperShoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/DaoSuperShoot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/ImplementDaoSuperShoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/dao/ImplementDaoSuperShoot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/service/SuperShootService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/service/SuperShootService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/view/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ifpr/paranavai/game/view/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +37,20 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="SET_USER_NAME_GLOBALLY" value="false" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "RubensMatheus-me"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="c5947ca5-91b0-4e4a-bdc7-0b363d78411a" />
+        <option name="url" value="https://github.com/RubensMatheus-me/SpaceInvaders.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -176,7 +176,15 @@
       <option name="project" value="LOCAL" />
       <updated>1688746559667</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="salvando os tiros e supertiros">
+      <option name="closed" value="true" />
+      <created>1701126620937</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1701126620937</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,7 +206,8 @@
     <MESSAGE value="spid-002" />
     <MESSAGE value="Delete out/production/JogoSpaceInvaders directory" />
     <MESSAGE value="Criando conexão com o banco de dados com Hibernate e Maven" />
-    <option name="LAST_COMMIT_MESSAGE" value="Criando conexão com o banco de dados com Hibernate e Maven" />
+    <MESSAGE value="salvando os tiros e supertiros" />
+    <option name="LAST_COMMIT_MESSAGE" value="salvando os tiros e supertiros" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

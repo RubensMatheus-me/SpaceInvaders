@@ -433,6 +433,9 @@ public class Level extends JPanel implements ActionListener, KeyListener {
         for (Shoot shoots : player.getShoots()) {
             ShootService.mergeShoot(shoots);
         }
+        for (SuperShoot superShoots : player.getSuperShoots()) {
+            SuperShootService.mergeSuperShoot(superShoots);
+        }
         PlayerService.saveOrUpdatePlayer(getPlayer());
     }
     public void deleteGame() {
@@ -480,8 +483,8 @@ public class Level extends JPanel implements ActionListener, KeyListener {
         List<SuperShoot> loadSuperShoots = new ImplementDaoSuperShoot().searchSuperShoot();
         if(!loadSuperShoots.isEmpty()) {
             for (SuperShoot superShoots : loadSuperShoots) {
-                int shootId = superShoots.getIdGraphicElement();
-                SuperShoot superShootSearch = daoSuperShoots.searchId(shootId);
+                int superShootId = superShoots.getIdGraphicElement();
+                SuperShoot superShootSearch = daoSuperShoots.searchId(superShootId);
                 daoSuperShoots.delete(superShootSearch);
             }
         }
