@@ -59,26 +59,13 @@ public class ImplementDaoEnemy1 implements DaoEnemy1{
             e.printStackTrace();
         }
     }
-    public void saveOrUpdateEnemy1(Enemy1 enemy1) {
+    public void mergeEnemy1(Enemy1 enemy1) {
         try (Session session = HibernateUtil.getSession()) {
             Transaction transaction = session.beginTransaction();
-            session.saveOrUpdate(enemy1);
+            session.merge(enemy1);
             transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
-        }
-    }
-    public List<Enemy1> getAllEnemiesByPlayerId(int playerId) {
-        try (Session session = HibernateUtil.getSession()) {
-            String hql = "FROM Enemy1 WHERE Player.idGraphicElement = :playerId";
-            Query<Enemy1> query = session.createQuery(hql, Enemy1.class);
-            query.setParameter("playerId", playerId);
-            List<Enemy1> enemies = query.list();
-
-            return enemies;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return Collections.emptyList();
         }
     }
 }

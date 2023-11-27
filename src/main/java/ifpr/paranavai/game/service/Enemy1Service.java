@@ -28,11 +28,8 @@ public class Enemy1Service {
     public static void delete(Enemy1 enemy1) {
         dao.delete(enemy1);
     }
-    public static void saveOrUpdateEnemy1(Enemy1 enemy1) {
-        dao.saveOrUpdateEnemy1(enemy1);
-    }
-    public static List<Enemy1> getAllEnemiesByPlayerId(int playerId) {
-        return dao.getAllEnemiesByPlayerId(playerId);
+    public static void mergeEnemy1(Enemy1 enemy1) {
+        dao.mergeEnemy1(enemy1);
     }
 }
 

@@ -12,5 +12,5 @@ public interface DaoStars {
     public void refresh (Stars stars);
     public void delete (Stars stars);
     public void insert (Stars stars);
-    public void saveOrUpdateStars (Stars stars);
+    public void mergeStars (Stars stars);
 }

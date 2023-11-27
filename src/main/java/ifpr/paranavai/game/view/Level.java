@@ -1,6 +1,5 @@
 package ifpr.paranavai.game.view;
 
-import ifpr.paranavai.game.KeyHandler;
 import ifpr.paranavai.game.dao.*;
 import ifpr.paranavai.game.models.Player;
 import ifpr.paranavai.game.models.enemies.Enemy1;
@@ -19,8 +18,6 @@ import java.util.List;
 @Entity
 @Table(name = "tb_level")
 public class Level extends JPanel implements ActionListener, KeyListener {
-    @Transient
-    KeyHandler kh;
     @Transient
     private MenuStyle menuStyle;
     @Id
@@ -425,15 +422,17 @@ public class Level extends JPanel implements ActionListener, KeyListener {
 
     public void saveGame() {
         for (Enemy1 enemy11 : getEnemy1()) {
-            Enemy1Service.saveOrUpdateEnemy1(enemy11);
+            Enemy1Service.mergeEnemy1(enemy11);
         }
         for (MiniMeteor miniMeteor : getMiniMeteors()) {
-            MiniMeteorService.saveOrUpdateMiniMeteor(miniMeteor);
+            MiniMeteorService.mergeMiniMeteor(miniMeteor);
         }
-        for (Stars stars1 : getStars()) {
-            StarsService.saveOrUpdateStars(stars1);
+        for (Stars stars2 : getStars()) {
+            StarsService.mergeStars(stars2);
         }
-
+        for (Shoot shoots : player.getShoots()) {
+            ShootService.mergeShoot(shoots);
+        }
         PlayerService.saveOrUpdatePlayer(getPlayer());
     }
     public void deleteGame() {
@@ -464,6 +463,26 @@ public class Level extends JPanel implements ActionListener, KeyListener {
                 int starsId = stars1.getIdGraphicElement();
                 Stars starsSearch = daoStars.searchId(starsId);
                 daoStars.delete(starsSearch);
+            }
+        }
+
+        DaoShoot daoShoots = new ImplementDaoShoot();
+        List<Shoot> loadShoots = new ImplementDaoShoot().searchShoot();
+        if(!loadShoots.isEmpty()) {
+            for (Shoot shoots : loadShoots) {
+                int shootId = shoots.getIdGraphicElement();
+                Shoot shootSearch = daoShoots.searchId(shootId);
+                daoShoots.delete(shootSearch);
+            }
+        }
+
+        DaoSuperShoot daoSuperShoots = new ImplementDaoSuperShoot();
+        List<SuperShoot> loadSuperShoots = new ImplementDaoSuperShoot().searchSuperShoot();
+        if(!loadSuperShoots.isEmpty()) {
+            for (SuperShoot superShoots : loadSuperShoots) {
+                int shootId = superShoots.getIdGraphicElement();
+                SuperShoot superShootSearch = daoSuperShoots.searchId(shootId);
+                daoSuperShoots.delete(superShootSearch);
             }
         }
 
@@ -507,6 +526,23 @@ public class Level extends JPanel implements ActionListener, KeyListener {
             Stars starsSearch = daoStars.searchId(stars1Id);
             getStars().add(starsSearch);
             stars1.load();
+        }
+        DaoShoot daoShoots = new ImplementDaoShoot();
+        List<Shoot> loadShoots = new ImplementDaoShoot().searchShoot();
+        for (Shoot shoots : loadShoots) {
+            int shootId = shoots.getIdGraphicElement();
+            Shoot shootSearch = daoShoots.searchId(shootId);
+            player.getShoots().add(shootSearch);
+            shoots.load();
+        }
+
+        DaoSuperShoot daoSuperShoot = new ImplementDaoSuperShoot();
+        List<SuperShoot> loadSuperShoots = new ImplementDaoSuperShoot().searchSuperShoot();
+        for (SuperShoot superShoots : loadSuperShoots) {
+            int superShootId = superShoots.getIdGraphicElement();
+            SuperShoot superShootSearch = daoSuperShoot.searchId(superShootId);
+            player.getSuperShoots().add(superShootSearch);
+            superShoots.load();
         }
 
     }

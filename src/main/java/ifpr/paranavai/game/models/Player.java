@@ -1,6 +1,5 @@
 package ifpr.paranavai.game.models;
 
-import ifpr.paranavai.game.KeyHandler;
 import ifpr.paranavai.game.view.Level;
 import ifpr.paranavai.game.models.shoots.Shoot;
 import ifpr.paranavai.game.models.shoots.SuperShoot;

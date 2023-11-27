@@ -12,5 +12,5 @@ public interface DaoMiniMeteor {
     public void refresh (MiniMeteor miniMeteor);
     public void delete (MiniMeteor miniMeteor);
     public void insert (MiniMeteor miniMeteor);
-    public void saveOrUpdateMiniMeteor (MiniMeteor miniMeteor);
+    public void mergeMiniMeteor (MiniMeteor miniMeteor);
 }

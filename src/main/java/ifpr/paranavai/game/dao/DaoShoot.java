@@ -12,5 +12,5 @@ public interface DaoShoot {
     public void refresh (Shoot shoot);
     public void delete (Shoot shoot);
     public void insert (Shoot shoot);
-    public void saveOrUpdateShoot (Shoot shoot);
+    public void mergeShoot (Shoot shoot);
 }

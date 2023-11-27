@@ -28,8 +28,8 @@ public class MiniMeteorService {
     public static void delete(MiniMeteor miniMeteor) {
         dao.delete(miniMeteor);
     }
-    public static void saveOrUpdateMiniMeteor(MiniMeteor miniMeteor) {
-        dao.saveOrUpdateMiniMeteor(miniMeteor);
+    public static void mergeMiniMeteor(MiniMeteor miniMeteor) {
+        dao.mergeMiniMeteor(miniMeteor);
     }
 
 }

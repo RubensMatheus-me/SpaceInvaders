@@ -12,6 +12,5 @@ public interface DaoEnemy1 {
     public void refresh (Enemy1 enemy1);
     public void delete (Enemy1 enemy1);
     public void insert (Enemy1 enemy1);
-    public void saveOrUpdateEnemy1 (Enemy1 enemy1);
-    public List<Enemy1> getAllEnemiesByPlayerId(int playerId);
+    public void mergeEnemy1 (Enemy1 enemy1);
 }

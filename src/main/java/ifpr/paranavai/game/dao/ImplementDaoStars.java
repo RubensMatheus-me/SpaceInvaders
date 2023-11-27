@@ -56,10 +56,10 @@ public class ImplementDaoStars implements DaoStars{
             e.printStackTrace();
         }
     }
-    public void saveOrUpdateStars(Stars stars) {
+    public void mergeStars(Stars stars) {
         try (Session session = HibernateUtil.getSession()) {
             Transaction transaction = session.beginTransaction();
-            session.saveOrUpdate(stars);
+            session.merge(stars);
             transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();

@@ -28,8 +28,8 @@ public class ShootService {
     public static void delete(Shoot shoot) {
         dao.delete(shoot);
     }
-    public static void saveOrUpdateShoot(Shoot shoot) {
-        dao.saveOrUpdateShoot(shoot);
+    public static void mergeShoot (Shoot shoot) {
+        dao.mergeShoot(shoot);
     }
 }
 

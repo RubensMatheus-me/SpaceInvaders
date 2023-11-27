@@ -28,7 +28,7 @@ public class StarsService {
     public static void delete(Stars stars) {
         dao.delete(stars);
     }
-    public static void saveOrUpdateStars(Stars stars) {
-        dao.saveOrUpdateStars(stars);
+    public static void mergeStars(Stars stars) {
+        dao.mergeStars(stars);
     }
 }

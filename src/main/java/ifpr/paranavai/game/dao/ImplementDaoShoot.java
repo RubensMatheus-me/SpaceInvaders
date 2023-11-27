@@ -56,10 +56,10 @@ public class ImplementDaoShoot implements DaoShoot{
             e.printStackTrace();
         }
     }
-    public void saveOrUpdateShoot(Shoot shoot) {
+    public void mergeShoot(Shoot shoot) {
         try (Session session = HibernateUtil.getSession()) {
             Transaction transaction = session.beginTransaction();
-            session.saveOrUpdate(shoot);
+            session.merge(shoot);
             transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();

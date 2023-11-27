@@ -61,10 +61,10 @@ public class ImplementDaoMiniMeteor implements DaoMiniMeteor {
             e.printStackTrace();
         }
     }
-    public void saveOrUpdateMiniMeteor(MiniMeteor miniMeteor) {
+    public void mergeMiniMeteor(MiniMeteor miniMeteor) {
         try (Session session = HibernateUtil.getSession()) {
             Transaction transaction = session.beginTransaction();
-            session.saveOrUpdate(miniMeteor);
+            session.merge(miniMeteor);
             transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
